@@ -30,19 +30,15 @@
     <!-- Left sidebar: navigation -->
     <aside class="sidebar" aria-label="Main navigation">
       <div class="sidebar-header">
-        <!-- 这里可以换成你生成的 icon png -->
-        <div class="sidebar-logo" aria-hidden="true">YE</div>
+        <!-- 这里是你的 YE 卡通 icon -->
+        <div class="sidebar-logo" aria-hidden="true">
+          <img src="images/icons/Yee.png" alt="Ye's avatar" />
+        </div>
+        
         <div>
           <div class="sidebar-title">Ye's Reading Notes</div>
           <div class="sidebar-subtitle">
-            A little better every day.
-          </div>
-
-          <!-- 研究方向 tag -->
-          <div class="sidebar-tags">
-            <span class="sidebar-tag">Multi-omics</span>
-            <span class="sidebar-tag">Computational Pathology</span>
-            <!-- <span class="sidebar-tag">Nuclei Segmentation</span> -->
+            - A little better every day.
           </div>
 
           <!-- 多语言愿望 -->
@@ -55,20 +51,29 @@
       </div>
 
       <nav class="sidebar-nav">
-        <!-- All notes: daily log -->
-        <details class="nav-group" open>
-          <summary data-category="all" class="nav-summary">
-            All Notes (Daily Log)
-          </summary>
-          <ul class="nav-list">
-            <li><a href="#today">Today</a></li>
-            <li><a href="#recent">Recent days</a></li>
+        <!-- HOME 分组：点击 HOME 跳到 #home -->
+        <div class="nav-group nav-group-home">
+          <a href="#home" class="nav-summary nav-summary-home nav-link-home">
+            HOME
+          </a>
+          <ul class="nav-list nav-list-root nav-list-home">
+            <li>
+              <a href="#today" class="nav-link-root">
+                Today
+              </a>
+            </li>
+            <li>
+              <a href="#recent" class="nav-link-root">
+                Recent days
+              </a>
+            </li>
           </ul>
-        </details>
-
+        </div>
+      
         <!-- 1. Multi-omics -->
-        <details class="nav-group" open>
-          <summary data-category="multi-omics" class="nav-summary">
+        <details class="nav-group">
+          <summary data-category="multi-omics"
+                  class="nav-summary nav-group-toggle">
             Multi-omics
           </summary>
           <ul class="nav-list">
@@ -78,8 +83,9 @@
         </details>
 
         <!-- 2. Pathology -->
-        <details class="nav-group" open>
-          <summary data-category="pathology" class="nav-summary">
+        <details class="nav-group">
+          <summary data-category="pathology"
+                  class="nav-summary nav-group-toggle">
             Pathology
           </summary>
           <ul class="nav-list">
@@ -90,8 +96,9 @@
         </details>
 
         <!-- 3. Multimodal & Foundation Models -->
-        <details class="nav-group" open>
-          <summary data-category="multimodal" class="nav-summary">
+        <details class="nav-group">
+          <summary data-category="multimodal"
+                  class="nav-summary nav-group-toggle">
             Multimodal Models
           </summary>
           <ul class="nav-list">
@@ -99,6 +106,7 @@
             <li><a href="post-multimodal-repr.html">Multimodal Representation Learning</a></li>
           </ul>
         </details>
+
       </nav>
 
       <div class="sidebar-footer">
@@ -112,14 +120,15 @@
       <!-- 统一的页面抬头区域 -->
       <header class="main-header">
         <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href="index.html" class="crumb-home">Home</a>
+          <a href="#home" class="crumb-home">Home</a>
           <span class="crumb-separator">/</span>
-          <span id="crumb-category">All Notes</span>
+          <span id="crumb-category">Overview</span>
         </nav>        
 
-        <h1 class="main-title" id="main-title">All Notes · Daily Log</h1>
+        <h1 class="main-title" id="main-title">Welcome · Ye's Reading Notes</h1>
         <p class="main-description" id="main-description">
-          A lightweight daily log of what I read, think, and try.
+          A lightweight, opinionated notebook where I log what I read about computational pathology, nuclei segmentation,
+          spatial &amp; multi-omics integration, and multimodal / foundation models.
         </p>
 
         <!-- 简单的研究标签，突出你的方向 -->
@@ -169,6 +178,68 @@
       </header>
 
       <div id="post-lists">
+        <!-- 🏠 Home / Overview 区域 -->
+        <section class="home-section" id="home" aria-label="Home overview">
+          <div class="home-hero">
+            <div class="home-hero-main">
+              <h2 class="section-title">Hi, I'm Ye 👋</h2>
+              <p class="home-hero-subtitle">
+                I read a little every day about <strong>computational pathology</strong>, 
+                <strong>multi-omics</strong>, and <strong>multimodal models</strong> — and leave a trail of notes here.
+              </p>
+              <div class="home-badges">
+                <span class="home-badge">Nuclei instance segmentation</span>
+                <span class="home-badge">Spatial &amp; multi-omics</span>
+                <span class="home-badge">Foundation &amp; reasoning models</span>
+              </div>
+            </div>
+            <div class="home-hero-side">
+              <div class="home-stat-card">
+                <div class="home-stat-label">Current focus</div>
+                <div class="home-stat-value">Histology × Multi-omics</div>
+              </div>
+              <div class="home-stat-card">
+                <div class="home-stat-label">Note style</div>
+                <div class="home-stat-value">Short · Honest · Practical</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-grid">
+            <div class="home-card">
+              <h3>About these notes</h3>
+              <p>
+                This site is my reading notebook. I jot down short, honest summaries of papers, ideas that resonate with me,
+                and small sparks for future projects in computational pathology and multi-omics.
+              </p>
+              <p>
+                Most entries are lightweight: a few sentences on what the paper did, what I found useful, and how it
+                might connect to nuclei segmentation, spatial transcriptomics, or multimodal reasoning.
+              </p>
+            </div>
+
+            <div class="home-card">
+              <h3>About me</h3>
+              <p>
+                I'm Ye Zhang (张烨), working on <strong>nuclei instance segmentation</strong>, 
+                <strong>multi-omics &amp; spatial integration</strong>, and 
+                <strong>multimodal foundation models for cancer research</strong>.
+              </p>
+              <p>
+                I enjoy building datasets, thinking about how histology reflects underlying omics, and exploring how models
+                can support real clinical questions instead of only benchmarks.
+              </p>
+            </div>
+          </div>
+
+          <div class="home-footnote">
+            <p>
+              If you're interested in similar topics or want to collaborate, feel free to reach out —
+              this notebook is also my way of thinking out loud.
+            </p>
+          </div>
+        </section>
+
         <!-- All Notes / Daily log -->
         <section class="post-list-section" data-category="all" aria-labelledby="today">
           <h2 class="section-title" id="today">Today</h2>
