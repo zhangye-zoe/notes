@@ -1,0 +1,121 @@
+/* ============================
+   Note page: meta, figures, tables, callouts
+   ============================ */
+
+/* 顶部 paper meta 区域 */
+.note-meta {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border-subtle);
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 6px 40px;
+  }
+  
+  .note-meta-item {
+    font-size: 0.82rem;
+  }
+  
+  .note-meta a {
+    color: var(--accent-strong);
+    text-decoration: none;
+  }
+  
+  .note-meta a:hover {
+    text-decoration: underline;
+  }
+  
+  /* 图像外框 */
+  .note-figure {
+    margin: 14px 0;
+    padding: 8px 10px 10px;
+    border-radius: 12px;
+    background: var(--bg-main-card);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .note-figure img {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .note-figure figcaption {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--text-subtle);
+  }
+  
+  /* 表格外框（避免表格直接贴在背景上） */
+  .table-wrapper {
+    margin: 12px 0;
+    padding: 8px 10px;
+    border-radius: 12px;
+    background: var(--bg-main-card);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+    overflow-x: auto;
+  }
+  
+  .table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  
+  .table-wrapper th,
+  .table-wrapper td {
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  }
+  
+  .table-wrapper thead th {
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  
+  /* 小总结 / 方法 / 自己思考的 callout 卡片 */
+  .note-callout {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    background: rgba(148, 163, 184, 0.08);
+    font-size: 0.86rem;
+  }
+  
+  .note-callout-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  
+  .note-callout-body {
+    font-size: 0.86rem;
+  }
+  
+  /* 针对不同用途可以稍微换底色（可选） */
+  .note-callout-key {
+    background: rgba(56, 189, 248, 0.08);
+  }
+  
+  .note-callout-method {
+    background: rgba(96, 165, 250, 0.08);
+  }
+  
+  .note-callout-self {
+    background: rgba(244, 114, 182, 0.08);
+  }
+  
+  /* 小屏幕下 meta 一列排布 */
+  @media (max-width: 900px) {
+    .note-meta {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  

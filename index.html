@@ -25,8 +25,19 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="images/icons/ye.png" />
 </head>
-<body>
+<body data-theme="light">
   <div class="app">
+
+    <button
+      id="back-to-top"
+      class="back-to-top"
+      type="button"
+      aria-label="Back to top"
+    >
+      ↑ Top
+    </button>
+
+
     <!-- Left sidebar: navigation -->
     <aside class="sidebar" aria-label="Main navigation">
       <div class="sidebar-header">
@@ -36,7 +47,7 @@
         </div>
         
         <div>
-          <div class="sidebar-title">Ye's Reading Notes</div>
+          <div class="sidebar-title">Reading Notes</div>
           <div class="sidebar-subtitle">
             - A little better every day.
           </div>
@@ -49,6 +60,8 @@
           </div>
         </div>
       </div>
+
+      <div class="nav-group-divider"></div>
 
       <nav class="sidebar-nav">
         <!-- HOME 分组：点击 HOME 跳到 #home -->
@@ -69,6 +82,8 @@
             </li>
           </ul>
         </div>
+
+        
       
         <!-- 1. Multi-omics -->
         <details class="nav-group">
@@ -77,8 +92,8 @@
             Multi-omics
           </summary>
           <ul class="nav-list">
-            <li><a href="post-multiomics-integration.html">Multi-omics Integration</a></li>
-            <li><a href="post-perturbation-example.html">Perturbation Analysis</a></li>
+            <li><a href="notes/post-multiomics-integration.html" target="content-frame">Multi-omics Integration</a></li>
+            <li><a href="post-perturbation-example.html" target="content-frame">Perturbation Analysis</a></li>
           </ul>
         </details>
 
@@ -89,9 +104,9 @@
             Pathology
           </summary>
           <ul class="nav-list">
-            <li><a href="post-nuclei-example.html">Nuclei Segmentation</a></li>
-            <li><a href="post-cancer-diagnosis.html">Cancer Diagnosis</a></li>
-            <li><a href="post-cancer-prognosis.html">Cancer Prognosis</a></li>
+            <li><a href="post-nuclei-example.html" target="content-frame">Nuclei Segmentation</a></li>
+            <li><a href="post-cancer-diagnosis.html" target="content-frame">Cancer Diagnosis</a></li>
+            <li><a href="post-cancer-prognosis.html" target="content-frame">Cancer Prognosis</a></li>
           </ul>
         </details>
 
@@ -102,10 +117,11 @@
             Multimodal Models
           </summary>
           <ul class="nav-list">
-            <li><a href="post-foundation-example.html">Foundation Models</a></li>
-            <li><a href="post-multimodal-repr.html">Multimodal Representation Learning</a></li>
+            <li><a href="post-foundation-example.html" target="content-frame">Foundation Models</a></li>
+            <li><a href="post-multimodal-repr.html" target="content-frame">Multimodal Representation Learning</a></li>
           </ul>
         </details>
+
 
       </nav>
 
@@ -115,193 +131,272 @@
       </div>
     </aside>
 
-    <!-- Right side: main content -->
     <main class="main">
-      <!-- 统一的页面抬头区域 -->
-      <header class="main-header">
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href="#home" class="crumb-home">Home</a>
-          <span class="crumb-separator">/</span>
-          <span id="crumb-category">Overview</span>
-        </nav>        
+      <div class="main-inner">
+        <!-- 统一的页面抬头区域 -->
+        <header class="main-header">
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="#home" class="crumb-home">Home</a>
+            <span class="crumb-separator">/</span>
+            <span id="crumb-category">Overview</span>
+            <!-- 主题切换按钮 -->
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color mode">
+              <span class="theme-toggle-icon">🌙</span>
+              <span class="theme-toggle-label">Dark mode</span>
+            </button>            
+          </nav>        
+    
+          <h1 class="main-title" id="main-title">Welcome · Reading Notes</h1>
 
-        <h1 class="main-title" id="main-title">Welcome · Ye's Reading Notes</h1>
-        <p class="main-description" id="main-description">
-          A lightweight, opinionated notebook where I log what I read about computational pathology, nuclei segmentation,
-          spatial &amp; multi-omics integration, and multimodal / foundation models.
-        </p>
+          <p class="main-tagline">
+            <span class="main-tagline-prefix">Exploring</span>
+            <span class="tag-strong">computational pathology</span>
+            <span class="main-tagline-dot">·</span>
+            <span class="tag-strong">multi-omics</span>
+            <span class="main-tagline-dot">·</span>
+            <span class="tag-strong">multimodal AI</span>
+            <span class="main-tagline-suffix">to understand cancer and biological systems.</span>
+          </p>
+          
+          
 
-        <!-- 简单的研究标签，突出你的方向 -->
-        <div class="main-research-tags">
-          <span class="tag">Nuclei Instance Segmentation</span>
-          <span class="tag">Spatial &amp; Multi-omics Integration</span>
-          <span class="tag">Multimodal &amp; Foundation Models</span>
-        </div>
+          <!-- <p class="main-description" id="main-description">
+            This site is my research reading notebook documenting concise, critical notes on work related to these themes.
+          </p> -->
 
-        <!-- 分享区域（icon + JS） -->
-        <div class="share-bar">
-          <span class="share-label">Share:</span>
-
-          <!-- X (Twitter) -->
-          <a id="share-x" class="share-btn share-btn-icon" href="#" target="_blank" rel="noopener noreferrer">
-            <img src="images/icons/x.png" alt="Share on X" class="share-icon" />
-          </a>
-
-          <!-- LinkedIn -->
-          <a id="share-linkedin" class="share-btn share-btn-icon" href="#" target="_blank" rel="noopener noreferrer">
-            <img src="images/icons/linkedin.png" alt="Share on LinkedIn" class="share-icon" />
-          </a>
-
-          <!-- Zhihu：复制链接为主 -->
-          <button class="share-btn share-btn-icon" data-platform="Zhihu" type="button">
-            <img src="images/icons/zhihu.png" alt="Share to Zhihu" class="share-icon" />
-          </button>
-
-          <!-- RedNote / 小红书：复制链接 -->
-          <button class="share-btn share-btn-icon" data-platform="RedNote" type="button">
-            <img src="images/icons/rednote.png" alt="Share to RedNote" class="share-icon" />
-          </button>
-
-          <!-- WeChat：复制链接 -->
-          <button class="share-btn share-btn-icon" data-platform="WeChat" type="button">
-            <img src="images/icons/wechat.png" alt="Share to WeChat" class="share-icon" />
-          </button>
-        </div>
-
-        <div id="share-toast" class="share-toast" aria-live="polite"></div>
-
-        <!-- 页面浏览次数 -->
-        <div class="page-views">
-          <span class="page-views-label">Page views:</span>
-          <span id="busuanzi_value_page_pv">--</span>
-        </div>
-      </header>
-
-      <div id="post-lists">
-        <!-- 🏠 Home / Overview 区域 -->
-        <section class="home-section" id="home" aria-label="Home overview">
-          <div class="home-hero">
-            <div class="home-hero-main">
-              <h2 class="section-title">Hi, I'm Ye 👋</h2>
-              <p class="home-hero-subtitle">
-                I read a little every day about <strong>computational pathology</strong>, 
-                <strong>multi-omics</strong>, and <strong>multimodal models</strong> — and leave a trail of notes here.
-              </p>
-              <div class="home-badges">
-                <span class="home-badge">Nuclei instance segmentation</span>
-                <span class="home-badge">Spatial &amp; multi-omics</span>
-                <span class="home-badge">Foundation &amp; reasoning models</span>
-              </div>
+    
+          <!-- 简单的研究标签，突出你的方向 -->
+          <!-- <div class="main-research-tags">
+            <span class="tag">Multi-omics Integration</span>
+            <span class="tag">Computational Pathology</span>
+            <span class="tag">Multimodal LLM </span>
+          </div> -->
+    
+          <!-- 分享区域（icon + JS） -->
+          <div class="header-meta-row">
+            <div class="share-bar">
+              <span class="share-label">Share:</span>
+          
+              <!-- X (Twitter) -->
+              <a id="share-x" class="share-btn share-btn-icon" href="#" target="_blank" rel="noopener noreferrer">
+                <img src="images/icons/x.png" alt="Share on X" class="share-icon" />
+              </a>
+          
+              <!-- LinkedIn -->
+              <a id="share-linkedin" class="share-btn share-btn-icon" href="#" target="_blank" rel="noopener noreferrer">
+                <img src="images/icons/linkedin.png" alt="Share on LinkedIn" class="share-icon" />
+              </a>
+          
+              <!-- Zhihu -->
+              <button class="share-btn share-btn-icon" data-platform="Zhihu" type="button">
+                <img src="images/icons/zhihu.png" alt="Share to Zhihu" class="share-icon" />
+              </button>
+          
+              <!-- RedNote -->
+              <button class="share-btn share-btn-icon" data-platform="RedNote" type="button">
+                <img src="images/icons/rednote.png" alt="Share to RedNote" class="share-icon" />
+              </button>
+          
+              <!-- WeChat -->
+              <button class="share-btn share-btn-icon" data-platform="WeChat" type="button">
+                <img src="images/icons/wechat.png" alt="Share to WeChat" class="share-icon" />
+              </button>
+          
+              <!-- 提示信息仍然跟在 share 这块后面 -->
+              <div id="share-toast" class="share-toast" aria-live="polite"></div>
             </div>
-            <div class="home-hero-side">
-              <div class="home-stat-card">
-                <div class="home-stat-label">Current focus</div>
-                <div class="home-stat-value">Histology × Multi-omics</div>
-              </div>
-              <div class="home-stat-card">
-                <div class="home-stat-label">Note style</div>
-                <div class="home-stat-value">Short · Honest · Practical</div>
-              </div>
+          
+            <div class="page-views">
+              <span id="busuanzi_container_page_pv">
+                Page views: <span id="busuanzi_value_page_pv">--</span>
+              </span>
             </div>
-          </div>
-
-          <div class="home-grid">
-            <div class="home-card">
-              <h3>About these notes</h3>
-              <p>
-                This site is my reading notebook. I jot down short, honest summaries of papers, ideas that resonate with me,
-                and small sparks for future projects in computational pathology and multi-omics.
-              </p>
-              <p>
-                Most entries are lightweight: a few sentences on what the paper did, what I found useful, and how it
-                might connect to nuclei segmentation, spatial transcriptomics, or multimodal reasoning.
-              </p>
-            </div>
-
-            <div class="home-card">
-              <h3>About me</h3>
-              <p>
-                I'm Ye Zhang (张烨), working on <strong>nuclei instance segmentation</strong>, 
-                <strong>multi-omics &amp; spatial integration</strong>, and 
-                <strong>multimodal foundation models for cancer research</strong>.
-              </p>
-              <p>
-                I enjoy building datasets, thinking about how histology reflects underlying omics, and exploring how models
-                can support real clinical questions instead of only benchmarks.
-              </p>
-            </div>
-          </div>
-
-          <div class="home-footnote">
-            <p>
-              If you're interested in similar topics or want to collaborate, feel free to reach out —
-              this notebook is also my way of thinking out loud.
-            </p>
-          </div>
+          </div>          
+        </header>
+    
+        <!-- 单篇阅读：iframe -->
+        <section class="content-viewer" aria-label="Post content viewer">
+          <iframe
+            id="content-frame"
+            name="content-frame"
+            title="Reading note content"
+            src=""
+            loading="lazy">
+          </iframe>
         </section>
+    
+        <!-- 列表视图 -->
+        <div id="post-lists">
+          <!-- 🏠 Home / Overview 区域 -->
+          <section class="home-section" id="home" aria-label="Home overview">
+            <div class="home-intro-card">
+              <h2 class="home-intro-title">Ye Zhang · Reading Notes</h2>
+          
+              <!-- <p class="home-intro-tagline">
+                <strong>Computational pathology × multi-omics × interpretable multimodal AI for cancer research.</strong>
+              </p> -->
+          
+              <!-- <p class="home-intro-text">
+                I am a postdoctoral fellow at The Chinese University of Hong Kong, working at the intersection of
+                <strong>computational pathology</strong>, <strong>multi-omics / spatial integration</strong>, and
+                <strong>machine learning</strong> to study cancer biology and clinical decision support.
+              </p> -->
+          
+              <p class="home-intro-text">
+                This site is a lightweight reading notebook: concise, opinionated notes on papers I read, with an emphasis on
+                how ideas can be turned into <strong>robust analysis pipelines</strong> rather than only benchmark numbers.
+              </p>
+          
+              <div class="home-intro-meta">
+                <div class="home-intro-meta-item">
+                  <span class="meta-label">Main themes</span>
+                  <span class="meta-value">
+                    Computational pathology · Multi-omics · Multimodal LLM · Foundation models
+                  </span>
+                </div>
+                <div class="home-intro-meta-item">
+                  <span class="meta-label">Note style</span>
+                  <span class="meta-value">
+                    Concise · Critical · Implementation-minded
+                  </span>
+                </div>
+              </div>
+          
+              <div class="home-links">
+                <a class="home-link-btn"
+                   href="https://scholar.google.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  Google Scholar
+                </a>
+                <a class="home-link-btn"
+                   href="https://github.com/zhangye-zoe"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  GitHub
+                </a>
+                <a class="home-link-btn"
+                  href="https://zhangye-zoe.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Personal homepage
+                </a>
 
-        <!-- All Notes / Daily log -->
-        <section class="post-list-section" data-category="all" aria-labelledby="today">
-          <h2 class="section-title" id="today">Today</h2>
+              </div>
+            </div>
+          </section>
+          
+    
+          <!-- All Notes / Daily log -->
+          <section class="post-list-section" data-category="all" aria-labelledby="today">
+            <h2 class="section-title" id="today">Today</h2>
+    
+            <article class="post-card">
+              <h3 class="post-card-title">
+                2026-01-09 · Bridging histology and multi-omics
+              </h3>
+              <p class="post-card-meta">
+                Tags: Multi-omics Integration, Foundation Models
+                <span class="meta-separator">·</span>
+                <span class="post-card-venue" data-venue="NeurIPS" data-year="2024">
+                  NeurIPS 2024
+                </span>
+              </p>
+              <p class="post-card-excerpt">
+                Skimmed a paper on aligning histology with bulk RNA-seq using a joint latent space. Noted their loss design and how they handle confounders.
+                Wrote down a potential idea for integrating perturbation data into a similar framework.
+              </p>
+            </article>
+    
+            <h2 class="section-title" id="recent">Recent days</h2>
+    
+            <article class="post-card">
+              <h3 class="post-card-title">
+                2026-01-08 · Thoughts on perturbation screens
+              </h3>
+              <p class="post-card-meta">
+                Tags: Perturbation Analysis
+                <span class="meta-separator">·</span>
+                <span class="post-card-venue" data-venue="Nature Methods" data-year="2022">
+                  Nature Methods 2022
+                </span>
+              </p>
+              <p class="post-card-excerpt">
+                Read a large-scale CRISPR perturbation study. Recorded how they model gene-gene interactions and how that might be combined with spatial information.
+              </p>
+            </article>
+    
+            <article class="post-card">
+              <h3 class="post-card-title">
+                2026-01-07 · Revisiting nuclei segmentation benchmarks
+              </h3>
+              <p class="post-card-meta">
+                Tags: Nuclei Segmentation, Pathology
+                <span class="meta-separator">·</span>
+                <span class="post-card-venue" data-venue="MICCAI" data-year="2021">
+                  MICCAI 2021
+                </span>
+              </p>
+              <p class="post-card-excerpt">
+                Compared several nuclei instance segmentation architectures. Reflected on continual learning and how to design an interactive annotation loop.
+              </p>
+            </article>
 
-          <article class="post-card">
-            <h3 class="post-card-title">
-              2026-01-09 · Bridging histology and multi-omics
-            </h3>
-            <p class="post-card-meta">
-              Tags: Multi-omics Integration, Foundation Models
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="NeurIPS" data-year="2024">
-                NeurIPS 2024
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              Skimmed a paper on aligning histology with bulk RNA-seq using a joint latent space. Noted their loss design and how they handle confounders.
-              Wrote down a potential idea for integrating perturbation data into a similar framework.
-            </p>
-          </article>
+            <article class="post-card">
+              <h3 class="post-card-title">
+                2026-01-07 · Revisiting nuclei segmentation benchmarks
+              </h3>
+              <p class="post-card-meta">
+                Tags: Nuclei Segmentation, Pathology
+                <span class="meta-separator">·</span>
+                <span class="post-card-venue" data-venue="MICCAI" data-year="2021">
+                  MICCAI 2021
+                </span>
+              </p>
+              <p class="post-card-excerpt">
+                Compared several nuclei instance segmentation architectures. Reflected on continual learning and how to design an interactive annotation loop.
+              </p>
+            </article>
 
-          <h2 class="section-title" id="recent">Recent days</h2>
+            <article class="post-card">
+              <h3 class="post-card-title">
+                2026-01-07 · Revisiting nuclei segmentation benchmarks
+              </h3>
+              <p class="post-card-meta">
+                Tags: Nuclei Segmentation, Pathology
+                <span class="meta-separator">·</span>
+                <span class="post-card-venue" data-venue="MICCAI" data-year="2021">
+                  MICCAI 2021
+                </span>
+              </p>
+              <p class="post-card-excerpt">
+                Compared several nuclei instance segmentation architectures. Reflected on continual learning and how to design an interactive annotation loop.
+              </p>
+            </article>
 
-          <article class="post-card">
-            <h3 class="post-card-title">
-              2026-01-08 · Thoughts on perturbation screens
-            </h3>
-            <p class="post-card-meta">
-              Tags: Perturbation Analysis
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="Nature Methods" data-year="2022">
-                Nature Methods 2022
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              Read a large-scale CRISPR perturbation study. Recorded how they model gene-gene interactions and how that might be combined with spatial information.
-            </p>
-          </article>
-
-          <article class="post-card">
-            <h3 class="post-card-title">
-              2026-01-07 · Revisiting nuclei segmentation benchmarks
-            </h3>
-            <p class="post-card-meta">
-              Tags: Nuclei Segmentation, Pathology
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="MICCAI" data-year="2021">
-                MICCAI 2021
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              Compared several nuclei instance segmentation architectures. Reflected on continual learning and how to design an interactive annotation loop.
-            </p>
-          </article>
-        </section>
+            <article class="post-card">
+              <h3 class="post-card-title">
+                2026-01-07 · Revisiting nuclei segmentation benchmarks
+              </h3>
+              <p class="post-card-meta">
+                Tags: Nuclei Segmentation, Pathology
+                <span class="meta-separator">·</span>
+                <span class="post-card-venue" data-venue="MICCAI" data-year="2021">
+                  MICCAI 2021
+                </span>
+              </p>
+              <p class="post-card-excerpt">
+                Compared several nuclei instance segmentation architectures. Reflected on continual learning and how to design an interactive annotation loop.
+              </p>
+            </article>
+          </section>
 
         <!-- 1. Multi-omics -->
         <section class="post-list-section" data-category="multi-omics" aria-label="Multi-omics notes">
           <h2 class="section-title">Multi-omics</h2>
 
           <article class="post-card">
-            <a href="post-multiomics-integration.html" class="post-card-title">
+            <a href="notes/post-multiomics-integration.html" class="post-card-title">
               [Paper Note] Multi-omics Integration
             </a>
             <p class="post-card-meta">
