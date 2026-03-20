@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paper Note Template · Ye Zhang</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="note-template-page">
+    <article class="note-template-shell">
+      <div class="hero-topline">Paper Reading Note</div>
+      <h1 class="note-template-title">[Paper Title]</h1>
+      <p class="note-template-meta">
+        Authors · Venue · Year · Tags
+      </p>
+
+      <div class="note-template-intro">
+        <strong>One-sentence impression.</strong> Write the shortest possible summary here: what problem the paper solves,
+        why it matters, and whether it is methodologically or biologically interesting.
+      </div>
+
+      <section class="template-section">
+        <h3>1. Problem Setting</h3>
+        <p>
+          What exact problem is the paper trying to solve? Define the task carefully. Is it integration, prediction,
+          alignment, generation, segmentation, prognosis, perturbation modeling, or something else?
+        </p>
+      </section>
+
+      <section class="template-section">
+        <h3>2. Data and Inputs</h3>
+        <div class="template-grid">
+          <div class="template-box">
+            <div class="template-box-title">Data type</div>
+            <p>e.g. histopathology, RNA-seq, ATAC-seq, methylation, WSI, spatial transcriptomics</p>
+          </div>
+          <div class="template-box">
+            <div class="template-box-title">Granularity</div>
+            <p>e.g. patient-level, slide-level, patch-level, cell-level, spot-level</p>
+          </div>
+          <div class="template-box">
+            <div class="template-box-title">Scale</div>
+            <p>Number of samples, number of patients, number of genes, number of images, cohorts, institutions</p>
+          </div>
+          <div class="template-box">
+            <div class="template-box-title">Supervision</div>
+            <p>Paired or unpaired, weak labels or strong labels, clinical endpoints, pseudo-labels</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="template-section">
+        <h3>3. Core Method</h3>
+        <p>
+          Explain the method in your own words. What is the model architecture? What are the main modules? What is the
+          objective function really encouraging the model to do?
+        </p>
+        <ul>
+          <li>Main model family: CNN, Transformer, GNN, VAE, flow, diffusion, MIL, ODE, etc.</li>
+          <li>Key inductive bias: what structure is assumed?</li>
+          <li>Loss terms: reconstruction, contrastive, classification, ranking, survival, regularization</li>
+          <li>What is genuinely new, and what is inherited from previous work?</li>
+        </ul>
+      </section>
+
+      <section class="template-section">
+        <h3>4. Main Results</h3>
+        <p>
+          Record the most important experimental findings only. Which baselines are compared? Which metric matters most?
+          Are the gains large, stable, and biologically meaningful, or just incremental?
+        </p>
+      </section>
+
+      <section class="template-section">
+        <h3>5. Strengths</h3>
+        <ul>
+          <li>What is elegant or convincing in the formulation?</li>
+          <li>What experimental design choices are particularly strong?</li>
+          <li>What makes the paper useful for your own research?</li>
+        </ul>
+      </section>
+
+      <section class="template-section">
+        <h3>6. Weaknesses and Questions</h3>
+        <ul>
+          <li>Which assumptions seem fragile?</li>
+          <li>What biological or clinical gap remains unresolved?</li>
+          <li>What would you challenge if you were reviewing this paper?</li>
+        </ul>
+      </section>
+
+      <section class="template-section">
+        <h3>7. Relation to My Research</h3>
+        <p>
+          This is the most important part. Write how the paper connects to your own work, for example MORN,
+          computational pathology, survival modeling, multimodal representation learning, or mechanistic interpretability.
+        </p>
+      </section>
+
+      <section class="template-section">
+        <h3>8. Possible Follow-up Ideas</h3>
+        <ul>
+          <li>Which idea can be reused directly?</li>
+          <li>Which limitation suggests a new method direction?</li>
+          <li>What experiment would you run if you wanted to extend this work?</li>
+        </ul>
+      </section>
+
+      <section class="template-section">
+        <h3>9. Quick Metadata</h3>
+        <div class="template-grid">
+          <div class="template-box">
+            <div class="template-box-title">Priority</div>
+            <p>High / Medium / Low</p>
+          </div>
+          <div class="template-box">
+            <div class="template-box-title">Read Status</div>
+            <p>Skimmed / Carefully Read / Revisit Later</p>
+          </div>
+          <div class="template-box">
+            <div class="template-box-title">Keywords</div>
+            <p>Enter 3–6 keywords for later retrieval.</p>
+          </div>
+          <div class="template-box">
+            <div class="template-box-title">Related Papers</div>
+            <p>Add follow-up reading targets here.</p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

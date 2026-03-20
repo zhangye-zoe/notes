@@ -2,529 +2,432 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ye Zhang - Reading Notes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ye Zhang · Reading Notes</title>
+  <meta name="description" content="Reading notes by Ye Zhang on computational pathology and computational biology." />
 
-  <!-- 基本描述 & SEO -->
-  <meta name="description" content="Reading notes by Ye Zhang on computational pathology, nuclei segmentation, multi-omics integration, and multimodal foundation models." />
-
-  <!-- Open Graph / 分享卡片 -->
-  <meta property="og:title" content="Ye Zhang - Reading Notes" />
-  <meta property="og:description" content="Daily reading log and paper notes on computational pathology, nuclei segmentation, multi-omics integration, and multimodal models." />
+  <meta property="og:title" content="Ye Zhang · Reading Notes" />
+  <meta property="og:description" content="A long-term research notebook on computational pathology and computational biology." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zhangye-zoe.github.io/" />
-  <!-- 建议放一张 1200x630 左右的横版预览图 -->
   <meta property="og:image" content="https://zhangye-zoe.github.io/images/share-default.png" />
 
-  <!-- Twitter Card / X 预览 -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ye Zhang - Reading Notes" />
-  <meta name="twitter:description" content="Daily reading notes on computational pathology and multi-omics integration." />
-  <meta name="twitter:image" content="https://zhangye-zoe.github.io/images/share-default.png" />
-
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="images/icons/ye.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body data-theme="light">
-  <div class="app">
+<body>
+  <div class="site-shell">
+    <aside class="sidebar" aria-label="Sidebar navigation">
+      <div class="sidebar-inner">
+        <div class="sidebar-top-glow"></div>
 
-    <button
-      id="back-to-top"
-      class="back-to-top"
-      type="button"
-      aria-label="Back to top"
-    >
-      ↑ Top
-    </button>
-
-
-    <!-- Left sidebar: navigation -->
-    <aside class="sidebar" aria-label="Main navigation">
-      <div class="sidebar-header">
-        <!-- 这里是你的 YE 卡通 icon -->
-        <div class="sidebar-logo" aria-hidden="true">
-          <img src="images/icons/Yee.png" alt="Ye's avatar" />
-        </div>
-        
-        <div>
-          <div class="sidebar-title">Reading Notes</div>
-          <div class="sidebar-subtitle">
-            - A little better every day.
+        <div class="profile-block">
+          <div class="profile-avatar-wrap">
+            <img src="images/icons/Yee.png" alt="Ye Zhang avatar" class="profile-avatar" />
           </div>
 
-          <!-- 多语言愿望 -->
-          <div class="sidebar-motto">
-            <div>愿这个世界不再有癌症。</div>
-            <div>May there be a world without cancer.</div>
-            <div>باشد که جهانی بدون سرطان وجود داشته باشد.  <!-- 波斯语 --></div>
+          <div class="profile-text">
+            <h1 class="profile-title">Ye Zhang</h1>
+            <div class="profile-subtitle">Reading Notes</div>
+            <div class="profile-desc">A little better every day.</div>
           </div>
         </div>
-      </div>
 
-      <div class="nav-group-divider"></div>
-
-      <nav class="sidebar-nav">
-        <!-- HOME 分组：点击 HOME 跳到 #home -->
-        <div class="nav-group nav-group-home">
-          <a href="#home" class="nav-summary nav-summary-home nav-link-home">
-            HOME
-          </a>
-          <ul class="nav-list nav-list-root nav-list-home">
-            <li>
-              <a href="#today" class="nav-link-root">
-                Today
-              </a>
-            </li>
-            <li>
-              <a href="#recent" class="nav-link-root">
-                Recent days
-              </a>
-            </li>
-          </ul>
+        <div class="motto-card">
+          <div class="motto-line">愿这个世界不再有癌症。</div>
+          <div class="motto-line">May there be a world without cancer.</div>
+          <div class="motto-line">باشد که جهانی بدون سرطان وجود داشته باشد.</div>
         </div>
 
-        
-      
-        <!-- 1. Multi-omics -->
-        <details class="nav-group">
-          <summary data-category="multi-omics"
-                  class="nav-summary nav-group-toggle">
-            Multi-omics
-          </summary>
-          <ul class="nav-list">
-            <li><a href="notes/post-multiomics-integration.html" target="content-frame">Multi-omics Integration</a></li>
-            <li><a href="post-perturbation-example.html" target="content-frame">Perturbation Analysis</a></li>
-          </ul>
-        </details>
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <div class="nav-label">Directory</div>
 
-        <!-- 2. Pathology -->
-        <details class="nav-group">
-          <summary data-category="pathology"
-                  class="nav-summary nav-group-toggle">
-            Pathology
-          </summary>
-          <ul class="nav-list">
-            <li><a href="post-nuclei-example.html" target="content-frame">Nuclei Segmentation</a></li>
-            <li><a href="post-cancer-diagnosis.html" target="content-frame">Cancer Diagnosis</a></li>
-            <li><a href="post-cancer-prognosis.html" target="content-frame">Cancer Prognosis</a></li>
-          </ul>
-        </details>
+          <a class="nav-home active" href="#" data-page="home">HOME</a>
 
-        <!-- 3. Multimodal & Foundation Models -->
-        <details class="nav-group">
-          <summary data-category="multimodal"
-                  class="nav-summary nav-group-toggle">
-            Multimodal Models
-          </summary>
-          <ul class="nav-list">
-            <li><a href="post-foundation-example.html" target="content-frame">Foundation Models</a></li>
-            <li><a href="post-multimodal-repr.html" target="content-frame">Multimodal Representation Learning</a></li>
-          </ul>
-        </details>
+          <details class="nav-group nav-group-bio" open>
+            <summary class="nav-group-title">Computational Biology</summary>
+            <div class="nav-links">
+              <a href="#" class="nav-link" data-page="multiomics-overview">Overview</a>
+              <a href="#" class="nav-link" data-page="multiomics-integration">Multi-omics Integration</a>
+              <a href="#" class="nav-link" data-page="multiomics-trajectory">Trajectory Inference</a>
+              <a href="#" class="nav-link" data-page="multiomics-perturbation">Perturbation Prediction</a>
+            </div>
+          </details>
 
+          <details class="nav-group nav-group-path" open>
+            <summary class="nav-group-title">Computational Pathology</summary>
+            <div class="nav-links">
+              <a href="#" class="nav-link" data-page="pathology-overview">Overview</a>
+              <a href="#" class="nav-link" data-page="pathology-nuclei">Nuclei Segmentation</a>
+              <a href="#" class="nav-link" data-page="pathology-diagnosis">Cancer Diagnosis</a>
+              <a href="#" class="nav-link" data-page="pathology-prognosis">Cancer Prognosis</a>
+            </div>
+          </details>
+        </nav>
 
-      </nav>
-
-      <div class="sidebar-footer">
-        © 2026 Ye Zhang<br />
-        Built with ♥ and GitHub Pages
+        <div class="sidebar-footer">
+          © 2026 Ye Zhang<br />
+          Built for long-term paper tracking.
+        </div>
       </div>
     </aside>
 
-    <main class="main">
-      <div class="main-inner">
-        <!-- 统一的页面抬头区域 -->
-        <header class="main-header">
-          <nav class="breadcrumbs" aria-label="Breadcrumb">
-            <a href="#home" class="crumb-home">Home</a>
-            <span class="crumb-separator">/</span>
-            <span id="crumb-category">Overview</span>
-            <!-- 主题切换按钮 -->
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color mode">
-              <span class="theme-toggle-icon">🌙</span>
-              <span class="theme-toggle-label">Dark mode</span>
-            </button>            
-          </nav>        
-    
-          <h1 class="main-title" id="main-title">Welcome · Reading Notes</h1>
+    <main class="content-area">
+      <div class="content-inner">
+        <section class="page is-active" id="page-home">
+          <header class="hero-card hero-home">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
 
-          <p class="main-tagline">
-            <span class="main-tagline-prefix">Exploring</span>
-            <span class="tag-strong">computational pathology</span>
-            <span class="main-tagline-dot">·</span>
-            <span class="tag-strong">multi-omics</span>
-            <span class="main-tagline-dot">·</span>
-            <span class="tag-strong">multimodal AI</span>
-            <span class="main-tagline-suffix">to understand cancer and biological systems.</span>
-          </p>
-          
-          
+            <div class="hero-topline">Research Notebook</div>
+            <h2 class="hero-title">Paper Notes and Reflections</h2>
+            <p class="hero-text">
+              This website curates representative papers in computational pathology, computational biology, and related research areas, together with concise personal reading notes. It serves as a long-term academic notebook for organizing key literature, tracing methodological progress, and recording critical insights across evolving research directions.
+            </p>
 
-          <!-- <p class="main-description" id="main-description">
-            This site is my research reading notebook documenting concise, critical notes on work related to these themes.
-          </p> -->
-
-    
-          <!-- 简单的研究标签，突出你的方向 -->
-          <!-- <div class="main-research-tags">
-            <span class="tag">Multi-omics Integration</span>
-            <span class="tag">Computational Pathology</span>
-            <span class="tag">Multimodal LLM </span>
-          </div> -->
-    
-          <!-- 分享区域（icon + JS） -->
-          <div class="header-meta-row">
-            <div class="share-bar">
-              <span class="share-label">Share:</span>
-          
-              <!-- X (Twitter) -->
-              <a id="share-x" class="share-btn share-btn-icon" href="#" target="_blank" rel="noopener noreferrer">
-                <img src="images/icons/x.png" alt="Share on X" class="share-icon" />
-              </a>
-          
-              <!-- LinkedIn -->
-              <a id="share-linkedin" class="share-btn share-btn-icon" href="#" target="_blank" rel="noopener noreferrer">
-                <img src="images/icons/linkedin.png" alt="Share on LinkedIn" class="share-icon" />
-              </a>
-          
-              <!-- Zhihu -->
-              <button class="share-btn share-btn-icon" data-platform="Zhihu" type="button">
-                <img src="images/icons/zhihu.png" alt="Share to Zhihu" class="share-icon" />
-              </button>
-          
-              <!-- RedNote -->
-              <button class="share-btn share-btn-icon" data-platform="RedNote" type="button">
-                <img src="images/icons/rednote.png" alt="Share to RedNote" class="share-icon" />
-              </button>
-          
-              <!-- WeChat -->
-              <button class="share-btn share-btn-icon" data-platform="WeChat" type="button">
-                <img src="images/icons/wechat.png" alt="Share to WeChat" class="share-icon" />
-              </button>
-          
-              <!-- 提示信息仍然跟在 share 这块后面 -->
-              <div id="share-toast" class="share-toast" aria-live="polite"></div>
+            <div class="hero-tags">
+              <span class="hero-tag hero-tag-bio">Computational Biology</span>
+              <span class="hero-tag hero-tag-path">Computational Pathology</span>
+              <span class="hero-tag hero-tag-cancer">Cancer Research</span>
             </div>
-          
-            <div class="page-views">
-              <span id="busuanzi_container_page_pv">
-                Page views: <span id="busuanzi_value_page_pv">--</span>
-              </span>
-            </div>
-          </div>          
-        </header>
-    
-        <!-- 单篇阅读：iframe -->
-        <section class="content-viewer" aria-label="Post content viewer">
-          <iframe
-            id="content-frame"
-            name="content-frame"
-            title="Reading note content"
-            src=""
-            loading="lazy">
-          </iframe>
-        </section>
-    
-        <!-- 列表视图 -->
-        <div id="post-lists">
-          <!-- 🏠 Home / Overview 区域 -->
-          <section class="home-section" id="home" aria-label="Home overview">
-            <div class="home-intro-card">
-              <h2 class="home-intro-title">Ye Zhang · Reading Notes</h2>
-          
-              <!-- <p class="home-intro-tagline">
-                <strong>Computational pathology × multi-omics × interpretable multimodal AI for cancer research.</strong>
-              </p> -->
-          
-              <!-- <p class="home-intro-text">
-                I am a postdoctoral fellow at The Chinese University of Hong Kong, working at the intersection of
-                <strong>computational pathology</strong>, <strong>multi-omics / spatial integration</strong>, and
-                <strong>machine learning</strong> to study cancer biology and clinical decision support.
-              </p> -->
-          
-              <p class="home-intro-text">
-                This site is a lightweight reading notebook: concise, opinionated notes on papers I read, with an emphasis on
-                how ideas can be turned into <strong>robust analysis pipelines</strong> rather than only benchmark numbers.
-              </p>
-          
-              <div class="home-intro-meta">
-                <div class="home-intro-meta-item">
-                  <span class="meta-label">Main themes</span>
-                  <span class="meta-value">
-                    Computational pathology · Multi-omics · Multimodal LLM · Foundation models
-                  </span>
-                </div>
-                <div class="home-intro-meta-item">
-                  <span class="meta-label">Note style</span>
-                  <span class="meta-value">
-                    Concise · Critical · Implementation-minded
-                  </span>
-                </div>
-              </div>
-          
-              <div class="home-links">
-                <a class="home-link-btn"
-                   href="https://scholar.google.com/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                  Google Scholar
-                </a>
-                <a class="home-link-btn"
-                   href="https://github.com/zhangye-zoe"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                  GitHub
-                </a>
-                <a class="home-link-btn"
-                  href="https://zhangye-zoe.github.io/"
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  Personal homepage
-                </a>
+          </header>
 
+          <section class="panel-card panel-card-home">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker kicker-home">Recent</div>
+                <h3 class="section-title">Recent Notes</h3>
+                <p class="section-subtitle">A compact view of your latest reading records.</p>
               </div>
             </div>
+
+            <div class="note-list">
+              <article class="note-card note-card-home">
+                <div class="note-main">
+                  <div class="note-date">2026-01-09</div>
+                  <h4 class="note-title">Bridging histology and multi-omics</h4>
+                  <div class="note-meta">NeurIPS 2024 · Multi-omics Integration · Foundation-style alignment</div>
+                  <p class="note-excerpt">
+                    A note on aligning histology with transcriptomic signals in a shared latent space, focusing on confounder control and future extensions toward perturbation-aware integration.
+                  </p>
+                </div>
+                <a class="note-open-btn note-open-btn-home" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+
+              <article class="note-card note-card-home">
+                <div class="note-main">
+                  <div class="note-date">2026-01-08</div>
+                  <h4 class="note-title">Thoughts on perturbation screens</h4>
+                  <div class="note-meta">Nature Methods 2022 · Perturbation Analysis</div>
+                  <p class="note-excerpt">
+                    Reflections on large-scale perturbation design, regulatory inference, and how perturbation signals may later connect to spatial and histology-derived representations.
+                  </p>
+                </div>
+                <a class="note-open-btn note-open-btn-home" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+
+              <article class="note-card note-card-home">
+                <div class="note-main">
+                  <div class="note-date">2026-01-07</div>
+                  <h4 class="note-title">Revisiting nuclei segmentation benchmarks</h4>
+                  <div class="note-meta">MICCAI 2021 · Pathology · Nuclei Segmentation</div>
+                  <p class="note-excerpt">
+                    A compact comparison of instance segmentation strategies, annotation assumptions, and what benchmark design misses when moving toward real pathology workflows.
+                  </p>
+                </div>
+                <a class="note-open-btn note-open-btn-home" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+            </div>
           </section>
-          
-    
-          <!-- All Notes / Daily log -->
-          <section class="post-list-section" data-category="all" aria-labelledby="today">
-            <h2 class="section-title" id="today">Today</h2>
-    
-            <article class="post-card">
-              <h3 class="post-card-title">
-                2026-01-09 · Bridging histology and multi-omics
-              </h3>
-              <p class="post-card-meta">
-                Tags: Multi-omics Integration, Foundation Models
-                <span class="meta-separator">·</span>
-                <span class="post-card-venue" data-venue="NeurIPS" data-year="2024">
-                  NeurIPS 2024
-                </span>
-              </p>
-              <p class="post-card-excerpt">
-                Skimmed a paper on aligning histology with bulk RNA-seq using a joint latent space. Noted their loss design and how they handle confounders.
-                Wrote down a potential idea for integrating perturbation data into a similar framework.
-              </p>
-            </article>
-    
-            <h2 class="section-title" id="recent">Recent days</h2>
-    
-            <article class="post-card">
-              <h3 class="post-card-title">
-                2026-01-08 · Thoughts on perturbation screens
-              </h3>
-              <p class="post-card-meta">
-                Tags: Perturbation Analysis
-                <span class="meta-separator">·</span>
-                <span class="post-card-venue" data-venue="Nature Methods" data-year="2022">
-                  Nature Methods 2022
-                </span>
-              </p>
-              <p class="post-card-excerpt">
-                Read a large-scale CRISPR perturbation study. Recorded how they model gene-gene interactions and how that might be combined with spatial information.
-              </p>
-            </article>
-    
-            <article class="post-card">
-              <h3 class="post-card-title">
-                2026-01-07 · Revisiting nuclei segmentation benchmarks
-              </h3>
-              <p class="post-card-meta">
-                Tags: Nuclei Segmentation, Pathology
-                <span class="meta-separator">·</span>
-                <span class="post-card-venue" data-venue="MICCAI" data-year="2021">
-                  MICCAI 2021
-                </span>
-              </p>
-              <p class="post-card-excerpt">
-                Compared several nuclei instance segmentation architectures. Reflected on continual learning and how to design an interactive annotation loop.
-              </p>
-            </article>
-
-            <article class="post-card">
-              <h3 class="post-card-title">
-                2026-01-07 · Revisiting nuclei segmentation benchmarks
-              </h3>
-              <p class="post-card-meta">
-                Tags: Nuclei Segmentation, Pathology
-                <span class="meta-separator">·</span>
-                <span class="post-card-venue" data-venue="MICCAI" data-year="2021">
-                  MICCAI 2021
-                </span>
-              </p>
-              <p class="post-card-excerpt">
-                Compared several nuclei instance segmentation architectures. Reflected on continual learning and how to design an interactive annotation loop.
-              </p>
-            </article>
-
-            <article class="post-card">
-              <h3 class="post-card-title">
-                2026-01-07 · Revisiting nuclei segmentation benchmarks
-              </h3>
-              <p class="post-card-meta">
-                Tags: Nuclei Segmentation, Pathology
-                <span class="meta-separator">·</span>
-                <span class="post-card-venue" data-venue="MICCAI" data-year="2021">
-                  MICCAI 2021
-                </span>
-              </p>
-              <p class="post-card-excerpt">
-                Compared several nuclei instance segmentation architectures. Reflected on continual learning and how to design an interactive annotation loop.
-              </p>
-            </article>
-
-            <article class="post-card">
-              <h3 class="post-card-title">
-                2026-01-07 · Revisiting nuclei segmentation benchmarks
-              </h3>
-              <p class="post-card-meta">
-                Tags: Nuclei Segmentation, Pathology
-                <span class="meta-separator">·</span>
-                <span class="post-card-venue" data-venue="MICCAI" data-year="2021">
-                  MICCAI 2021
-                </span>
-              </p>
-              <p class="post-card-excerpt">
-                Compared several nuclei instance segmentation architectures. Reflected on continual learning and how to design an interactive annotation loop.
-              </p>
-            </article>
-          </section>
-
-        <!-- 1. Multi-omics -->
-        <section class="post-list-section" data-category="multi-omics" aria-label="Multi-omics notes">
-          <h2 class="section-title">Multi-omics</h2>
-
-          <article class="post-card">
-            <a href="notes/post-multiomics-integration.html" class="post-card-title">
-              [Paper Note] Multi-omics Integration
-            </a>
-            <p class="post-card-meta">
-              Category: Multi-omics · Subtopic: Integration
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="ICML" data-year="2023">
-                ICML 2023
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              A brief summary of the problem setting, integration strategy, and how this work connects to computational pathology and cancer subtyping...
-            </p>
-          </article>
-
-          <article class="post-card">
-            <a href="post-perturbation-example.html" class="post-card-title">
-              [Paper Note] Perturbation Analysis
-            </a>
-            <p class="post-card-meta">
-              Category: Multi-omics · Subtopic: Perturbation-based integration
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="Cell" data-year="2021">
-                Cell 2021
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              Notes on a study using large-scale perturbation screens to infer gene regulatory programs and cellular responses, and how these signals can be aligned with other omics layers...
-            </p>
-          </article>
         </section>
 
-        <!-- 2. Pathology -->
-        <section class="post-list-section" data-category="pathology" aria-label="Pathology notes">
-          <h2 class="section-title">Pathology</h2>
+        <section class="page" id="page-multiomics-overview">
+          <section class="panel-card category-page category-page-bio">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker kicker-bio">Category</div>
+                <h3 class="section-title">Computational Biology</h3>
+                <p class="section-subtitle">Multi-omics, perturbation modeling, temporal dynamics, and biologically grounded machine learning.</p>
+              </div>
+            </div>
 
-          <article class="post-card">
-            <a href="post-nuclei-example.html" class="post-card-title">
-              [Paper Note] Nuclei Segmentation
-            </a>
-            <p class="post-card-meta">
-              Category: Pathology · Subtopic: Nuclei Segmentation
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="CVPR" data-year="2020">
-                CVPR 2020
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              A reflection on different architectures for nuclei instance segmentation, how they handle overlapping/touching nuclei, and some ideas about continual learning and prompts...
-            </p>
-          </article>
+            <div class="category-intro category-intro-bio">
+              I use this section to track papers in computational biology, including multi-omics analysis, perturbation modeling, temporal dynamics, regulatory inference, and theoretically grounded formulations for complex biological systems.
+            </div>
 
-          <article class="post-card">
-            <a href="post-cancer-diagnosis.html" class="post-card-title">
-              [Paper Note] Cancer Diagnosis
-            </a>
-            <p class="post-card-meta">
-              Category: Pathology · Subtopic: Diagnosis
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="Nature Medicine" data-year="2019">
-                Nature Medicine 2019
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              Notes on models and biomarkers used for cancer diagnosis from histopathology, with comments on robustness, domain shift, and interpretability...
-            </p>
-          </article>
+            <div class="note-list">
+              <article class="note-card compact note-card-bio">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-topic">Overview</span>
+                    <span class="note-badge badge-method">Joint Embedding</span>
+                  </div>
+                  <h4 class="note-title">[Paper Note] Multi-omics Integration</h4>
+                  <div class="note-meta">ICML 2023 · Alignment · Latent representation</div>
+                  <p class="note-excerpt">A short note on integration assumptions, supervision signal, latent structure, and downstream biological validity.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-bio" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
 
-          <article class="post-card">
-            <a href="post-cancer-prognosis.html" class="post-card-title">
-              [Paper Note] Cancer Prognosis
-            </a>
-            <p class="post-card-meta">
-              Category: Pathology · Subtopic: Prognosis / Risk Stratification
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="Nature Cancer" data-year="2022">
-                Nature Cancer 2022
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              Summary of survival models, risk scores, and how omics + image features are combined to predict outcomes...
-            </p>
-          </article>
+              <article class="note-card compact note-card-bio">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-topic">Overview</span>
+                    <span class="note-badge badge-green">Perturbation</span>
+                  </div>
+                  <h4 class="note-title">[Paper Note] Perturbation Analysis</h4>
+                  <div class="note-meta">Cell 2021 · Perturbation · Regulatory programs</div>
+                  <p class="note-excerpt">A note on how perturbation experiments uncover causal biological structure and where model assumptions become fragile.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-bio" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+            </div>
+          </section>
         </section>
 
-        <!-- 3. Multimodal & Foundation Models -->
-        <section class="post-list-section" data-category="multimodal" aria-label="Multimodal and foundation model notes">
-          <h2 class="section-title">Multimodal &amp; Foundation Models</h2>
+        <section class="page" id="page-multiomics-integration">
+          <section class="panel-card category-page category-page-integration">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker kicker-integration">Subtopic</div>
+                <h3 class="section-title">Computational Biology · Multi-omics Integration</h3>
+                <p class="section-subtitle">Methods for fusion, alignment, disentanglement, and cross-modal biological reasoning.</p>
+              </div>
+            </div>
 
-          <article class="post-card">
-            <a href="post-foundation-example.html" class="post-card-title">
-              [Paper Note] Foundation Models in Pathology
-            </a>
-            <p class="post-card-meta">
-              Category: Multimodal · Subtopic: Foundation Models
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="NeurIPS" data-year="2023">
-                NeurIPS 2023
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              A note on a foundation model for histopathology images: pretraining strategy, downstream tasks, scaling behavior, and open questions for multi-omics and spatial data...
-            </p>
-          </article>
+            <div class="note-list">
+              <article class="note-card compact note-card-integration">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-venue">ICML 2023</span>
+                    <span class="note-badge badge-topic">Integration</span>
+                    <span class="note-badge badge-method">Representation Learning</span>
+                  </div>
+                  <h4 class="note-title note-title-strong">[Paper Note] Multi-omics Integration</h4>
+                  <div class="note-meta">Integration · Joint latent space · Cross-modal alignment</div>
+                  <p class="note-excerpt">Summary of model design, loss decomposition, assumptions about shared structure, and opportunities for pathology coupling.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-integration" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+            </div>
+          </section>
+        </section>
 
-          <article class="post-card">
-            <a href="post-multimodal-repr.html" class="post-card-title">
-              [Paper Note] Multimodal Representation Learning
-            </a>
-            <p class="post-card-meta">
-              Category: Multimodal · Subtopic: Cross-modal representations
-              <span class="meta-separator">·</span>
-              <span class="post-card-venue" data-venue="ICLR" data-year="2022">
-                ICLR 2022
-              </span>
-            </p>
-            <p class="post-card-excerpt">
-              Thoughts on models that jointly learn from images, text, and omics, and how such representations can support reasoning and downstream tasks...
-            </p>
-          </article>
+        <section class="page" id="page-multiomics-trajectory">
+          <section class="panel-card category-page category-page-trajectory">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker kicker-trajectory">Subtopic</div>
+                <h3 class="section-title">Computational Biology · Trajectory Inference</h3>
+                <p class="section-subtitle">
+                  Modeling cellular dynamics, temporal state transitions, and regulatory changes from multi-omic single-cell data.
+                </p>
+              </div>
+            </div>
+
+            <div class="note-list">
+              <article class="note-card compact note-card-featured">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-venue">Nature Communications 2025</span>
+                    <span class="note-badge badge-topic">Trajectory Inference</span>
+                    <span class="note-badge badge-method">MultiVeloVAE</span>
+                  </div>
+
+                  <h4 class="note-title note-title-strong">
+                    Inferring differential dynamics from multilineage, multi-omic, and multi-sample single-cell data with MultiVeloVAE
+                  </h4>
+
+                  <div class="note-meta">
+                    Topic · Single-cell multi-omics · Dynamic modeling · Temporal inference
+                  </div>
+
+                  <p class="note-excerpt">
+                    A framework for modeling lineage-specific and sample-dependent cellular dynamics from multi-omic single-cell data,
+                    with emphasis on latent temporal structure, differential kinetics, and regulatory state transitions.
+                  </p>
+                </div>
+
+                <a class="note-open-btn note-open-btn-trajectory" href="note-template.html" target="_blank" rel="noopener noreferrer">
+                  Browse
+                </a>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="page" id="page-multiomics-perturbation">
+          <section class="panel-card category-page category-page-perturbation">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker kicker-perturbation">Subtopic</div>
+                <h3 class="section-title">Computational Biology · Perturbation Prediction</h3>
+                <p class="section-subtitle">Interventional biology, cellular response, and regulation-aware learning.</p>
+              </div>
+            </div>
+
+            <div class="note-list">
+              <article class="note-card compact note-card-perturbation">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-venue">Cell 2021</span>
+                    <span class="note-badge badge-green">Perturbation</span>
+                    <span class="note-badge badge-method">Regulatory Programs</span>
+                  </div>
+                  <h4 class="note-title note-title-strong">[Paper Note] Perturbation Analysis</h4>
+                  <div class="note-meta">Cellular response · Intervention · Regulatory inference</div>
+                  <p class="note-excerpt">A note on how perturbation screens expose dynamic regulation and what kinds of downstream tasks are genuinely non-trivial.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-perturbation" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="page" id="page-pathology-overview">
+          <section class="panel-card category-page category-page-pathology">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker kicker-pathology">Category</div>
+                <h3 class="section-title">Computational Pathology</h3>
+                <p class="section-subtitle">Segmentation, diagnosis, prognosis, and clinically grounded pathology AI.</p>
+              </div>
+            </div>
+
+            <div class="category-intro category-intro-pathology">
+              This section focuses on pathology papers that are useful beyond leaderboard numbers: segmentation, weak supervision, diagnosis, survival modeling, interpretability, data curation, and clinical robustness.
+            </div>
+
+            <div class="note-list">
+              <article class="note-card compact note-card-pathology">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-venue">CVPR 2020</span>
+                    <span class="note-badge badge-path">Segmentation</span>
+                  </div>
+                  <h4 class="note-title">[Paper Note] Nuclei Segmentation</h4>
+                  <div class="note-meta">Instance separation · Annotation burden · Foundation models</div>
+                  <p class="note-excerpt">A note on instance separation, annotation burden, and which ideas remain relevant for pathology foundation models.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-pathology" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+
+              <article class="note-card compact note-card-pathology">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-venue">Nature Medicine 2019</span>
+                    <span class="note-badge badge-path">Diagnosis</span>
+                  </div>
+                  <h4 class="note-title">[Paper Note] Cancer Diagnosis</h4>
+                  <div class="note-meta">Biomarkers · Domain generalization · Clinical plausibility</div>
+                  <p class="note-excerpt">Notes on biomarker usage, pathology pipelines, domain generalization, and clinical plausibility.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-pathology" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+
+              <article class="note-card compact note-card-pathology">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-venue">Nature Cancer 2022</span>
+                    <span class="note-badge badge-path">Prognosis</span>
+                  </div>
+                  <h4 class="note-title">[Paper Note] Cancer Prognosis</h4>
+                  <div class="note-meta">Survival objectives · Patient stratification · Multimodal fusion</div>
+                  <p class="note-excerpt">A concise note on survival objectives, multimodal fusion, patient stratification, and evaluation design.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-pathology" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="page" id="page-pathology-nuclei">
+          <section class="panel-card category-page category-page-nuclei">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker kicker-nuclei">Subtopic</div>
+                <h3 class="section-title">Computational Pathology · Nuclei Segmentation</h3>
+                <p class="section-subtitle">Instance segmentation, overlap resolution, annotation strategy, and promptable designs.</p>
+              </div>
+            </div>
+
+            <div class="note-list">
+              <article class="note-card compact note-card-nuclei">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-venue">CVPR 2020</span>
+                    <span class="note-badge badge-path">Pathology</span>
+                    <span class="note-badge badge-method">Segmentation</span>
+                  </div>
+                  <h4 class="note-title note-title-strong">[Paper Note] Nuclei Segmentation</h4>
+                  <div class="note-meta">Architecture · Supervision quality · Deployment realism</div>
+                  <p class="note-excerpt">A structured reading note on nuclei segmentation architecture, supervision quality, and deployment realism.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-nuclei" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="page" id="page-pathology-diagnosis">
+          <section class="panel-card category-page category-page-diagnosis">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker kicker-diagnosis">Subtopic</div>
+                <h3 class="section-title">Computational Pathology · Cancer Diagnosis</h3>
+                <p class="section-subtitle">Diagnosis pipelines, biomarkers, domain shift, and pathology-specific interpretability.</p>
+              </div>
+            </div>
+
+            <div class="note-list">
+              <article class="note-card compact note-card-diagnosis">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-venue">Nature Medicine 2019</span>
+                    <span class="note-badge badge-path">Diagnosis</span>
+                    <span class="note-badge badge-method">Clinical AI</span>
+                  </div>
+                  <h4 class="note-title note-title-strong">[Paper Note] Cancer Diagnosis</h4>
+                  <div class="note-meta">Task setting · Data curation · Model design · Clinical relevance</div>
+                  <p class="note-excerpt">A concise template entry for recording task setting, data curation, model design, limitations, and clinical relevance.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-diagnosis" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="page" id="page-pathology-prognosis">
+          <section class="panel-card category-page category-page-prognosis">
+            <div class="section-head">
+              <div>
+                <div class="section-kicker kicker-prognosis">Subtopic</div>
+                <h3 class="section-title">Computational Pathology · Cancer Prognosis</h3>
+                <p class="section-subtitle">Risk stratification, survival modeling, multimodal fusion, and mechanistic interpretability.</p>
+              </div>
+            </div>
+
+            <div class="note-list">
+              <article class="note-card compact note-card-prognosis">
+                <div class="note-main">
+                  <div class="note-badges">
+                    <span class="note-badge badge-venue">Nature Cancer 2022</span>
+                    <span class="note-badge badge-path">Prognosis</span>
+                    <span class="note-badge badge-method">Survival Modeling</span>
+                  </div>
+                  <h4 class="note-title note-title-strong">[Paper Note] Cancer Prognosis</h4>
+                  <div class="note-meta">Survival endpoints · Metrics · Feature fusion · Translation</div>
+                  <p class="note-excerpt">A note template for survival endpoint definition, evaluation metrics, feature fusion, and translation concerns.</p>
+                </div>
+                <a class="note-open-btn note-open-btn-prognosis" href="note-template.html" target="_blank" rel="noopener noreferrer">Browse</a>
+              </article>
+            </div>
+          </section>
         </section>
       </div>
     </main>
   </div>
 
-  <!-- Busuanzi 页面访问量统计 -->
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  <!-- 主 JS 文件 -->
   <script src="main.js"></script>
 </body>
 </html>
