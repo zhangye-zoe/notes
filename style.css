@@ -137,8 +137,8 @@ summary {
 }
 
 .profile-avatar-wrap {
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   border-radius: 999px;
   overflow: hidden;
   flex-shrink: 0;
@@ -442,7 +442,7 @@ details > summary {
 }
 
 .hero-text {
-  max-width: 820px;
+  max-width: 900px;
   margin: 0;
   font-size: 15px;
   color: var(--muted);
@@ -1246,4 +1246,434 @@ details > summary {
   .template-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* ===== 2026-04 compact layout refinement ===== */
+
+:root {
+  --sidebar-width: 312px;
+}
+
+.sidebar-inner {
+  gap: 16px;
+}
+
+.sidebar-nav {
+  padding: 12px 12px 9px;
+}
+
+.nav-label {
+  margin: 0 6px 7px;
+  font-size: 10.5px;
+}
+
+.nav-home,
+.nav-link {
+  padding: 7px 11px;
+  font-size: 13.5px;
+  line-height: 1.28;
+}
+
+.nav-group-title {
+  padding: 7px 11px;
+  font-size: 13.8px;
+  line-height: 1.28;
+}
+
+.nav-links {
+  margin-top: 3px;
+  gap: 1px;
+}
+
+.hero-card {
+  padding: 30px 32px 28px;
+}
+
+.hero-title {
+  margin: 10px 0 8px;
+  font-size: clamp(24px, 3.1vw, 31px);
+  line-height: 1.12;
+}
+
+.panel-card,
+.overview-card {
+  padding: 26px 26px 24px;
+}
+
+.overview-title {
+  font-size: 30px;
+}
+
+.section-title {
+  margin: 2px 0 2px;
+  font-size: 25px;
+}
+
+.section-directory {
+  margin-top: 16px;
+  gap: 12px;
+}
+
+.directory-card {
+  padding: 14px 15px 12px;
+  min-height: 102px;
+}
+
+.directory-title {
+  font-size: 17px;
+  line-height: 1.28;
+  margin-bottom: 5px;
+}
+
+.directory-desc {
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+.note-list {
+  gap: 12px;
+}
+
+.note-list.note-list-loose {
+  gap: 12px;
+}
+
+.note-card {
+  gap: 14px;
+  padding: 14px 15px;
+  border-radius: 20px;
+}
+
+.note-card.compact {
+  padding: 13px 14px;
+}
+
+.note-badges {
+  gap: 6px;
+  margin-bottom: 7px;
+}
+
+.note-badge {
+  padding: 4px 8px;
+  font-size: 10.5px;
+}
+
+.note-title {
+  margin: 0 0 4px;
+  font-size: 18px;
+  line-height: 1.33;
+}
+
+.note-title-strong {
+  font-size: 19px;
+  line-height: 1.34;
+}
+
+.note-excerpt {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.62;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.note-card.compact .note-meta {
+  display: none;
+}
+
+.note-open-btn {
+  min-width: 78px;
+  padding: 9px 12px;
+  font-size: 12px;
+  align-self: center;
+}
+
+.panel-divider {
+  margin: 0 0 4px;
+}
+
+.category-page {
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  .site-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(226, 230, 241, 0.9);
+  }
+
+  .content-area {
+    padding: 22px 16px 34px;
+  }
+
+  .hero-card,
+  .panel-card,
+  .overview-card {
+    padding: 22px 18px 20px;
+  }
+
+  .directory-card {
+    min-height: 0;
+  }
+
+  .note-card,
+  .note-card.compact {
+    padding: 12px 13px;
+  }
+}
+
+
+/* ===== 2026-04 color contrast enhancement ===== */
+:root {
+  --bg: #eef3ff;
+  --bg-soft: #f7f9ff;
+  --panel: rgba(255, 255, 255, 0.92);
+  --panel-solid: #ffffff;
+  --text: #1c2333;
+  --muted: #647089;
+  --muted-strong: #4e5b75;
+  --line: #dbe3f2;
+  --line-soft: #e8eef8;
+
+  --accent: #5b63f6;
+  --accent-soft: rgba(91, 99, 246, 0.14);
+  --accent-strong: #4650df;
+  --accent-glow: rgba(91, 99, 246, 0.22);
+
+  --blue: #2a6df2;
+  --blue-soft: rgba(42, 109, 242, 0.14);
+
+  --green: #0c9b76;
+  --green-soft: rgba(12, 155, 118, 0.14);
+
+  --orange: #e87b2f;
+  --orange-soft: rgba(232, 123, 47, 0.14);
+
+  --pink: #d84e96;
+  --pink-soft: rgba(216, 78, 150, 0.14);
+
+  --amber: #dd9a1a;
+  --amber-soft: rgba(221, 154, 26, 0.14);
+
+  --shadow: 0 22px 54px rgba(41, 58, 108, 0.10);
+  --shadow-soft: 0 12px 30px rgba(41, 58, 108, 0.07);
+}
+
+body {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(196, 213, 255, 0.92), transparent 26%),
+    radial-gradient(circle at 100% 0%, rgba(230, 213, 255, 0.82), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(207, 241, 255, 0.58), transparent 28%),
+    linear-gradient(180deg, #f8faff 0%, #eef3ff 100%);
+}
+
+.sidebar {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(245, 248, 255, 0.78));
+  border-right: 1px solid rgba(213, 223, 241, 0.95);
+}
+
+.motto-card,
+.sidebar-nav {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 255, 0.88));
+  border: 1px solid rgba(220, 229, 244, 0.98);
+  box-shadow: 0 12px 28px rgba(52, 71, 125, 0.08);
+}
+
+.nav-home.active,
+.nav-link.active {
+  background: linear-gradient(135deg, rgba(91, 99, 246, 0.18), rgba(72, 148, 255, 0.12));
+  color: var(--accent-strong);
+  box-shadow: inset 0 0 0 1px rgba(91, 99, 246, 0.12), 0 8px 18px rgba(91, 99, 246, 0.08);
+}
+
+.nav-home:hover,
+.nav-link:hover,
+.nav-group-title:hover {
+  background: linear-gradient(135deg, rgba(91, 99, 246, 0.14), rgba(72, 148, 255, 0.10));
+}
+
+.hero-card,
+.panel-card,
+.note-template-shell {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 255, 0.90));
+  border: 1px solid rgba(220, 229, 245, 0.98);
+  box-shadow: 0 22px 56px rgba(34, 50, 96, 0.10);
+}
+
+.overview-card {
+  background:
+    radial-gradient(circle at top right, rgba(118, 146, 255, 0.20), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(242, 246, 255, 0.96));
+  border: 1px solid rgba(187, 201, 234, 0.55);
+  box-shadow: 0 18px 46px rgba(41, 58, 108, 0.10);
+}
+
+.overview-card-pathology {
+  background:
+    radial-gradient(circle at top right, rgba(255, 190, 130, 0.24), transparent 32%),
+    linear-gradient(180deg, rgba(255, 252, 248, 0.99), rgba(255, 246, 238, 0.96));
+}
+
+.overview-card-pathology-sub {
+  background:
+    radial-gradient(circle at top right, rgba(255, 203, 156, 0.24), transparent 32%),
+    linear-gradient(180deg, rgba(255, 251, 246, 0.99), rgba(255, 244, 235, 0.96));
+}
+
+.overview-card-diagnosis {
+  background:
+    radial-gradient(circle at top right, rgba(244, 156, 205, 0.24), transparent 32%),
+    linear-gradient(180deg, rgba(255, 249, 252, 0.99), rgba(255, 241, 248, 0.96));
+}
+
+.overview-card-prognosis {
+  background:
+    radial-gradient(circle at top right, rgba(247, 208, 118, 0.26), transparent 32%),
+    linear-gradient(180deg, rgba(255, 252, 246, 0.99), rgba(255, 246, 231, 0.96));
+}
+
+.directory-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 255, 0.92));
+  border: 1px solid rgba(197, 209, 235, 0.72);
+  box-shadow: 0 10px 24px rgba(48, 67, 122, 0.07);
+}
+
+.directory-card:hover {
+  box-shadow: 0 16px 34px rgba(48, 67, 122, 0.12);
+  border-color: rgba(97, 126, 214, 0.34);
+}
+
+.note-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(245, 248, 255, 0.95));
+  border: 1px solid rgba(205, 216, 238, 0.92);
+  box-shadow: 0 14px 34px rgba(38, 55, 102, 0.08);
+}
+
+.note-card:hover {
+  box-shadow: 0 20px 40px rgba(38, 55, 102, 0.12);
+}
+
+.note-card-home {
+  background: linear-gradient(180deg, rgba(248, 249, 255, 0.98), rgba(239, 243, 255, 0.96));
+  border-color: rgba(150, 162, 235, 0.34);
+}
+
+.note-card-bio,
+.note-card-featured {
+  background: linear-gradient(135deg, rgba(241, 244, 255, 0.98), rgba(233, 239, 255, 0.96));
+  border-color: rgba(126, 140, 231, 0.28);
+  box-shadow: 0 14px 32px rgba(79, 70, 229, 0.10);
+}
+
+.note-card-integration {
+  background: linear-gradient(135deg, rgba(239, 247, 255, 0.99), rgba(230, 241, 255, 0.97));
+  border-color: rgba(95, 149, 240, 0.28);
+  box-shadow: 0 14px 32px rgba(42, 109, 242, 0.10);
+}
+
+.note-card-perturbation {
+  background: linear-gradient(135deg, rgba(238, 253, 247, 0.99), rgba(228, 246, 239, 0.97));
+  border-color: rgba(74, 178, 140, 0.28);
+  box-shadow: 0 14px 32px rgba(12, 155, 118, 0.10);
+}
+
+.note-card-pathology,
+.note-card-nuclei {
+  background: linear-gradient(135deg, rgba(255, 246, 239, 0.99), rgba(255, 238, 226, 0.97));
+  border-color: rgba(232, 144, 84, 0.28);
+  box-shadow: 0 14px 32px rgba(232, 123, 47, 0.10);
+}
+
+.note-card-diagnosis {
+  background: linear-gradient(135deg, rgba(255, 242, 249, 0.99), rgba(252, 232, 244, 0.97));
+  border-color: rgba(223, 110, 174, 0.28);
+  box-shadow: 0 14px 32px rgba(216, 78, 150, 0.10);
+}
+
+.note-card-prognosis {
+  background: linear-gradient(135deg, rgba(255, 248, 233, 0.99), rgba(252, 241, 212, 0.97));
+  border-color: rgba(228, 176, 68, 0.30);
+  box-shadow: 0 14px 32px rgba(221, 154, 26, 0.10);
+}
+
+.category-page-bio {
+  background: linear-gradient(180deg, rgba(242, 245, 255, 0.98), rgba(250, 251, 255, 0.96));
+}
+
+.category-page-survey,
+.category-page-integration,
+.category-page-trajectory {
+  background: linear-gradient(180deg, rgba(240, 246, 255, 0.98), rgba(250, 252, 255, 0.96));
+}
+
+.category-page-perturbation {
+  background: linear-gradient(180deg, rgba(240, 251, 246, 0.98), rgba(251, 254, 252, 0.96));
+}
+
+.category-page-pathology,
+.category-page-nuclei {
+  background: linear-gradient(180deg, rgba(255, 245, 239, 0.98), rgba(255, 252, 249, 0.96));
+}
+
+.category-page-diagnosis {
+  background: linear-gradient(180deg, rgba(255, 242, 248, 0.98), rgba(255, 251, 253, 0.96));
+}
+
+.category-page-prognosis {
+  background: linear-gradient(180deg, rgba(255, 247, 233, 0.98), rgba(255, 252, 246, 0.96));
+}
+
+.note-badge {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.badge-venue {
+  background: rgba(42, 109, 242, 0.12);
+  border-color: rgba(42, 109, 242, 0.16);
+}
+
+.badge-topic {
+  background: rgba(91, 99, 246, 0.12);
+  border-color: rgba(91, 99, 246, 0.16);
+}
+
+.badge-method {
+  background: rgba(139, 92, 246, 0.12);
+}
+
+.badge-green {
+  background: rgba(12, 155, 118, 0.12);
+  border-color: rgba(12, 155, 118, 0.16);
+}
+
+.badge-path {
+  background: rgba(232, 123, 47, 0.12);
+  border-color: rgba(232, 123, 47, 0.16);
+}
+
+.note-open-btn {
+  box-shadow: 0 10px 22px rgba(55, 74, 128, 0.16);
+}
+
+.panel-divider {
+  background: linear-gradient(90deg, transparent, rgba(102, 123, 186, 0.34), transparent);
+}
+
+.note-template-shell {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(245, 248, 255, 0.92));
+}
+
+.template-box {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 248, 255, 0.92));
+  border: 1px solid rgba(214, 224, 242, 0.88);
+  box-shadow: 0 10px 24px rgba(47, 66, 119, 0.06);
 }
