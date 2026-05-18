@@ -163,10 +163,10 @@ html[data-theme="dark"] .refined-hero { background: linear-gradient(135deg, rgba
 }
 .hero-topline.subtle { color: var(--muted); background: rgba(127,134,150,.10); }
 .hero-title {
-  margin: 0; max-width: 800px;
+  margin: 0; max-width: 750px;
   font-family: var(--font-display);
-  font-size: clamp(25px, 4.0vw, 30px);
-  line-height: 1.03; letter-spacing: -.045em; font-weight: 700;
+  font-size: clamp(31px, 4.2vw,25px);
+  line-height: 1.03; letter-spacing: -.045em; font-weight: 750;
 }
 .hero-text { margin: 16px 0 0; max-width: 890px; color: var(--muted); font-size: 15.2px; line-height: 1.76; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
@@ -327,7 +327,7 @@ html[data-theme="dark"] .note-box { background: rgba(255,255,255,.03); }
 @media (max-width: 560px) {
   .content-area { padding: 16px 12px 32px; }
   .hero-title { font-size: 20px; }
-  .overview-title { font-size: 27px; }
+  .overview-title { font-size: 23px; }
   .share-grid { grid-template-columns: 1fr; }
 }
 
@@ -709,22 +709,13 @@ html[data-theme="dark"] .top-action:hover { background: rgba(255,255,255,.07); }
 }
 
 .hero-title {
-  margin: 0;
-  max-width: none;
   font-family: var(--font-ui);
-  font-size: clamp(30px, 3.1vw, 38px);
+  max-width: 760px;
+  font-size: clamp(24px, 3.2vw, 36px);
   line-height: 1.08;
   letter-spacing: -0.045em;
   font-weight: 800;
-  white-space: nowrap;
 }
-
-/* @media (max-width: 1100px) {
-  .hero-title {
-    white-space: normal;
-    font-size: clamp(28px, 5vw, 40px);
-  }
-} */
 
 .hero-text {
   margin-top: 12px;
@@ -3411,4 +3402,262 @@ html[data-theme="dark"] #page-home .summary-note-arrow {
 }
 html[data-theme="dark"] #page-home .summary-note-body span {
   color: rgba(232,238,249,.70) !important;
+}
+
+/* ===== v14 final polish: calm Home text, lighter purple cards, unified section titles ===== */
+:root {
+  --home: #8a6fd6;
+  --home-soft: rgba(138, 111, 214, .105);
+  --home-line: rgba(138, 111, 214, .24);
+  --home-strong: #5e46b2;
+  --home-ink: #2b2248;
+}
+html[data-theme="dark"] {
+  --home: #c7b5ff;
+  --home-soft: rgba(199, 181, 255, .13);
+  --home-line: rgba(199, 181, 255, .28);
+  --home-strong: #efe8ff;
+  --home-ink: #ffffff;
+}
+
+/* Home title should be readable and stay on one line on desktop. */
+#page-home .home-introduction .hero-title,
+#page-home .hero-title {
+  color: var(--text) !important;
+  max-width: none !important;
+  /* white-space: nowrap !important; */
+  /* font-family: var(--font-ui) !important; */
+  font-size: clamp(25px, 2.9vw, 22px) !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.055em !important;
+  /* font-weight: 650 !important; */
+}
+#page-home .home-introduction .hero-text,
+#page-home .hero-text {
+  color: var(--muted) !important;
+}
+@media (max-width: 1280px) {
+  #page-home .home-introduction .hero-title,
+  #page-home .hero-title {
+    white-space: normal !important;
+    font-size: clamp(28px, 4.2vw, 35px) !important;
+  }
+}
+
+/* Use one professional heading style for Find/Search, To read next, and Topic notes. */
+#page-home .section-title,
+#page-home .reading-board h3,
+#page-home .topic-summary-panel h3,
+#page-home .search-panel .section-title {
+  color: var(--text) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 22px !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.035em !important;
+  font-weight: 850 !important;
+}
+#page-home .topic-summary-panel p,
+#page-home .reading-board p,
+#page-home .section-subtitle-lite {
+  color: var(--muted) !important;
+  font-family: var(--font-ui) !important;
+}
+
+/* Lighter, cleaner purple surface system for Home in day mode. */
+#page-home .hero-card,
+#page-home .panel-card,
+#page-home .home-introduction,
+#page-home .search-panel,
+#page-home .reading-board,
+#page-home .topic-summary-panel {
+  border-color: color-mix(in srgb, var(--home) 18%, var(--line)) !important;
+  background:
+    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--home) 6%, transparent), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.88), rgba(252,251,255,.78)) !important;
+  box-shadow: 0 22px 58px rgba(73, 62, 121, .07) !important;
+}
+#page-home .home-outline {
+  border-color: color-mix(in srgb, var(--home) 16%, var(--line)) !important;
+  background: rgba(255,255,255,.72) !important;
+}
+#page-home .home-outline a {
+  color: var(--text) !important;
+  border-color: transparent !important;
+}
+#page-home .home-outline span,
+#page-home .nav-number,
+.nav-home.active .nav-number,
+.nav-home-sections .nav-number {
+  color: var(--home-strong) !important;
+}
+
+/* Search and suggestion chips keep the purple theme but softer. */
+#page-home .search-box {
+  border-color: color-mix(in srgb, var(--home) 22%, var(--line)) !important;
+  background: rgba(255,255,255,.82) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.88), 0 12px 28px rgba(73,62,121,.055) !important;
+}
+#page-home .search-box:focus-within {
+  border-color: color-mix(in srgb, var(--home) 38%, var(--line)) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--home) 8%, transparent), 0 14px 34px rgba(73,62,121,.07) !important;
+}
+#page-home .search-box span,
+#page-home .search-icon,
+#page-home .suggestion-head {
+  color: var(--home-strong) !important;
+}
+#page-home .filter-chip,
+#page-home .suggestion-chip,
+#page-home .mini-stat {
+  color: #514a63 !important;
+  background: rgba(255,255,255,.72) !important;
+  border-color: color-mix(in srgb, var(--home) 15%, var(--line)) !important;
+}
+#page-home .filter-chip.active,
+#page-home .filter-chip:hover,
+#page-home .suggestion-chip:hover {
+  color: var(--home-strong) !important;
+  background: color-mix(in srgb, var(--home) 7%, #ffffff) !important;
+  border-color: color-mix(in srgb, var(--home) 27%, var(--line)) !important;
+}
+
+/* Home paper cards: lighter purple, black text. */
+#page-home .paper-card-simple,
+#page-home .paper-card-simple.family-bio,
+#page-home .paper-card-simple.family-path,
+#page-home .paper-card-simple.family-bridge {
+  --card-accent: var(--home) !important;
+  --card-accent-soft: var(--home-soft) !important;
+  --card-accent-strong: var(--home-strong) !important;
+  color: var(--text) !important;
+  border-color: color-mix(in srgb, var(--home) 25%, rgba(51,77,91,.14)) !important;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--home) 5%, transparent), transparent 40%),
+    linear-gradient(180deg, rgba(255,255,255,.96), rgba(252,251,255,.92)) !important;
+  box-shadow: 0 10px 26px rgba(73,62,121,.055) !important;
+}
+#page-home .paper-card-simple:hover {
+  border-color: color-mix(in srgb, var(--home) 38%, rgba(51,77,91,.18)) !important;
+  box-shadow: 0 16px 34px rgba(73,62,121,.085) !important;
+}
+#page-home .paper-card-simple .paper-title {
+  color: var(--text) !important;
+}
+#page-home .paper-card-simple::before,
+#page-home .summary-note-index {
+  color: var(--home-strong) !important;
+  background: color-mix(in srgb, var(--home) 8%, #ffffff) !important;
+  border-color: color-mix(in srgb, var(--home) 20%, rgba(75,92,105,.12)) !important;
+}
+#page-home .paper-card-simple::after {
+  opacity: .38 !important;
+  background: linear-gradient(180deg, var(--home), color-mix(in srgb, var(--home) 14%, transparent)) !important;
+}
+#page-home .paper-card-simple .badge.venue {
+  color: var(--home-strong) !important;
+  background: color-mix(in srgb, var(--home) 8%, #ffffff) !important;
+  border-color: color-mix(in srgb, var(--home) 18%, var(--line)) !important;
+}
+#page-home .paper-card-simple .badge:not(.venue) {
+  color: #64717b !important;
+  background: rgba(250,252,253,.82) !important;
+  border-color: rgba(74,103,119,.12) !important;
+}
+#page-home .paper-card-simple .paper-open,
+#page-home .paper-card-simple .paper-open.paper-link,
+#page-home .paper-card-simple .paper-open.note-link,
+#page-home .paper-card-simple .paper-open.note-file-link {
+  color: var(--home-strong) !important;
+  background: color-mix(in srgb, var(--home) 7%, #ffffff) !important;
+  border-color: color-mix(in srgb, var(--home) 21%, rgba(75,92,105,.12)) !important;
+}
+
+/* Topic note cards on Home should be soft purple, not too saturated. */
+#page-home .summary-note-card,
+#page-home .summary-note-card.family-home,
+#page-home .summary-note-card.family-bio,
+#page-home .summary-note-card.family-path,
+#page-home .summary-note-card.family-bridge {
+  --family-color: var(--home) !important;
+  --family-soft: var(--home-soft) !important;
+  --family-line: var(--home-line) !important;
+  border-color: color-mix(in srgb, var(--home) 20%, var(--line)) !important;
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--home) 7%, transparent), transparent 38%),
+    linear-gradient(135deg, rgba(255,255,255,.90), rgba(252,251,255,.80)) !important;
+  box-shadow: 0 12px 28px rgba(73,62,121,.06) !important;
+}
+#page-home .summary-note-body strong {
+  color: var(--text) !important;
+}
+#page-home .summary-note-body em,
+#page-home .summary-note-arrow {
+  color: var(--home-strong) !important;
+}
+
+/* Dark mode preserves the fixed readable Home surface with matching typography. */
+html[data-theme="dark"] #page-home .hero-title,
+html[data-theme="dark"] #page-home .section-title,
+html[data-theme="dark"] #page-home .reading-board h3,
+html[data-theme="dark"] #page-home .topic-summary-panel h3 {
+  color: #f6f3ff !important;
+}
+html[data-theme="dark"] #page-home .paper-card-simple,
+html[data-theme="dark"] #page-home .paper-card-simple.family-bio,
+html[data-theme="dark"] #page-home .paper-card-simple.family-path,
+html[data-theme="dark"] #page-home .paper-card-simple.family-bridge {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--home) 9%, transparent), transparent 46%),
+    linear-gradient(180deg, rgba(19, 27, 40, .94), rgba(11, 18, 29, .94)) !important;
+  border-color: color-mix(in srgb, var(--home) 30%, rgba(225,240,255,.10)) !important;
+}
+
+#page-home .paper-title {
+  font-family: var(--font-ui);
+  font-size: 15.5px;
+  line-height: 1.28;
+  letter-spacing: -0.018em;
+  font-weight: 760;
+}
+
+/* ===== Final small-size adjustment: Home title and Home reading-list paper titles ===== */
+#page-home .hero-title,
+#page-home .home-introduction .hero-title {
+  max-width: none !important;
+  white-space: nowrap !important;
+  font-family: var(--font-ui) !important;
+  font-size: clamp(30px, 2.55vw, 35px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.045em !important;
+  font-weight: 820 !important;
+  color: var(--text) !important;
+}
+
+#page-home .home-paper-list .paper-title,
+#page-home .reading-board .paper-title,
+#page-home .paper-card-simple .paper-title,
+#page-home .paper-card .paper-title {
+  font-family: var(--font-ui) !important;
+  font-size: 14.2px !important;
+  line-height: 1.30 !important;
+  letter-spacing: -0.012em !important;
+  font-weight: 750 !important;
+  color: var(--text) !important;
+}
+
+@media (max-width: 1280px) {
+  #page-home .hero-title,
+  #page-home .home-introduction .hero-title {
+    white-space: normal !important;
+    font-size: clamp(28px, 4.3vw, 38px) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  #page-home .home-paper-list .paper-title,
+  #page-home .reading-board .paper-title,
+  #page-home .paper-card-simple .paper-title,
+  #page-home .paper-card .paper-title {
+    font-size: 13.6px !important;
+  }
 }
