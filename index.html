@@ -76,8 +76,9 @@
             <div class="nav-links nav-home-sections">
               <a href="#home-introduction" class="nav-link nav-item home-anchor-link"><span class="nav-icon doc-icon" aria-hidden="true"></span><span class="nav-number">0.1</span><span class="nav-text">Introduction</span></a>
               <a href="#home-search" class="nav-link nav-item home-anchor-link"><span class="nav-icon doc-icon" aria-hidden="true"></span><span class="nav-number">0.2</span><span class="nav-text">Search</span></a>
-              <a href="#reading-queue" class="nav-link nav-item home-anchor-link"><span class="nav-icon doc-icon" aria-hidden="true"></span><span class="nav-number">0.3</span><span class="nav-text">Reading Queue</span></a>
-              <a href="#topic-summary" class="nav-link nav-item home-anchor-link"><span class="nav-icon doc-icon" aria-hidden="true"></span><span class="nav-number">0.4</span><span class="nav-text">Topic Notes</span></a>
+              <a href="#finish-notes" class="nav-link nav-item home-anchor-link"><span class="nav-icon doc-icon" aria-hidden="true"></span><span class="nav-number">0.3</span><span class="nav-text">Finish Notes</span></a>
+              <a href="#reading-queue" class="nav-link nav-item home-anchor-link"><span class="nav-icon doc-icon" aria-hidden="true"></span><span class="nav-number">0.4</span><span class="nav-text">Reading Queue</span></a>
+              <a href="#topic-summary" class="nav-link nav-item home-anchor-link"><span class="nav-icon doc-icon" aria-hidden="true"></span><span class="nav-number">0.5</span><span class="nav-text">Topic Notes</span></a>
             </div>
           </details>
 
@@ -172,7 +173,9 @@
 
             <section class="panel-card search-panel" id="home-search">
               <div class="section-head clean-head">
-                <div>                  <h3 class="section-title">Find a paper or research theme</h3>
+                <div>
+                  <div class="home-section-title-row"><span class="home-section-badge">0.2</span><h3 class="section-title">Search</h3></div>
+                  <p class="section-subtitle-lite">Find a paper or research theme.</p>
                   <div class="filter-row" id="filterRow" aria-label="Topic filters"></div>
                 </div>
                 <div class="mini-stats" id="miniStats"></div>
@@ -190,18 +193,30 @@
               <div class="search-results compact-results" id="searchResults"></div>
             </section>
 
-            <section class="panel-card reading-board reading-queue" id="reading-queue">
+            <section class="panel-card finish-panel" id="finish-notes">
               <div class="section-head clean-head">
-                <div>                  <h3 class="section-title">To read next</h3>
+                <div>
+                  <div class="home-section-title-row"><span class="home-section-badge">0.3</span><h3 class="section-title">Finish Notes</h3></div>
+                  <p class="section-subtitle-lite">Completed reading notes, newest first.</p>
                 </div>
               </div>
-              <div class="home-paper-list" id="readingQueue"></div>
+              <div class="finish-timeline" id="finishNotes"></div>
+            </section>
+
+            <section class="panel-card reading-board reading-queue" id="reading-queue">
+              <div class="section-head clean-head">
+                <div>
+                  <div class="home-section-title-row"><span class="home-section-badge">0.4</span><h3 class="section-title">Reading Queue</h3></div>
+                  <p class="section-subtitle-lite">Papers queued for later reading.</p>
+                </div>
+              </div>
+              <div class="home-paper-list queue-list" id="readingQueue"></div>
             </section>
 
             <section class="panel-card topic-summary-panel" id="topic-summary">
               <div class="section-head clean-head">
                 <div>
-                  <h3 class="section-title">Topic notes</h3>
+                  <div class="home-section-title-row"><span class="home-section-badge">0.5</span><h3 class="section-title">Topic Notes</h3></div>
                   <p class="section-subtitle-lite">Synthesis notes that summarize a research direction across multiple papers.</p>
                 </div>
               </div>
@@ -211,6 +226,7 @@
         </section>
 
         <section class="page" id="page-note"></section>
+        <section class="page" id="page-reader"></section>
         <section class="page" id="page-cbio-overview"></section>
         <section class="page" id="page-cbio-foundation"></section>
         <section class="page" id="page-cbio-epigenetics"></section>

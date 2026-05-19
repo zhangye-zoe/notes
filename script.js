@@ -5,6 +5,18 @@ const root = document.documentElement;
 
 const paper = (venue, title, tags, excerpt, url, note) => ({ venue, title, tags, excerpt, url, note });
 
+const PORPOISE_PAPER = paper('Cancer Cell 2022', 'Pan-Cancer Integrative Histology-Genomic Analysis via Multimodal Deep Learning', ['PORPOISE', 'Histology Genomics', 'Prognosis'], 'A pan-cancer multimodal survival modeling framework that integrates whole-slide pathology images and molecular profiles to improve prognosis prediction and identify interpretable image-omic correlates of patient risk.', 'https://doi.org/10.1016/j.ccell.2022.07.004', {
+  question: 'Can whole-slide pathology images and genomic profiles be jointly modeled to improve cancer prognosis and discover interpretable image-omic biomarkers?',
+  method: 'Uses weakly supervised WSI modeling, molecular feature modeling, and multimodal fusion to predict survival risk across 14 cancer types.',
+  value: 'A foundational reference for pathology-omics prognosis modeling and interpretable multimodal survival analysis.',
+  caution: 'This paper is Cancer Cell rather than Nature Portfolio, but it is highly relevant as an image-omics benchmark and finished reading note.',
+  noteFile: 'notes/porpoise.pdf',
+  completed: true,
+  completedDate: '2026-05-19',
+  completedLabel: 'Finished PDF note'
+});
+
+
 const topics = {
   'cbio-overview': {
     family: 'Computational Biology',
@@ -361,6 +373,7 @@ const topics = {
       ['Biomarkers', 'Mutation status, MSI, expression programs, immune phenotype, and therapy response.', null]
     ],
     papers: [
+      PORPOISE_PAPER,
       paper('Nature 2024', 'A Pathology Foundation Model for Cancer Diagnosis and Prognosis Prediction', ['CHIEF', 'Cancer', 'Outcome'], 'A pan-cancer model for diagnosis, molecular characterization, and prognosis prediction.', 'https://www.nature.com/articles/s41586-024-07894-z', {
         question: 'Can one pathology foundation model support diagnosis and survival-related prediction across cancers?',
         method: 'Uses foundation model representations for multiple downstream cancer tasks.',
@@ -445,6 +458,24 @@ const topics = {
       ['Spatial interpretation', 'Use morphology to understand molecular niches and tissue programs.', null]
     ],
     papers: [
+      paper('arXiv 2026', 'A Multimodal Foundation Model of Spatial Transcriptomics and Histology for Biological Discovery and Clinical Prediction', ['STORM', 'Spatial Transcriptomics', 'Histology'], 'A spatial transcriptomics and histology foundation model trained on 1.2 million paired ST-H&E spots across 18 organs for spatial domain discovery, virtual ST prediction, and clinical outcome prediction.', 'https://arxiv.org/abs/2604.03630', {
+        question: 'Can matched H&E and spatial transcriptomics be unified into a foundation model for biological discovery and clinical prediction?',
+        method: 'Uses a hierarchical architecture with spot-level H&E and ST encoders plus a spatial encoder, trained with multimodal masked pretraining over paired ST-H&E data.',
+        value: 'Important for Pathology Omics because it connects morphology, spatial molecular context, virtual ST prediction, and patient-level outcome modeling.',
+        caution: 'This is currently an arXiv work-in-progress, so benchmark details, claims, and final publication status should be updated later.'
+      }),
+      paper('Nature Methods 2026', 'Systematically Decoding Pathological Morphologies and Molecular Profiles with Unified Multimodal Embedding', ['Multi-Embed', 'Multimodal Embedding', 'Pathology Omics'], 'A unified and interpretable multimodal embedding framework for cross-modality inference and integration between multilevel pathological morphologies and multilayer molecular profiles.', 'https://www.nature.com/articles/s41592-026-03070-5', {
+        question: 'Can pathology morphology and multilayer molecular profiles be aligned in a unified embedding space for inference and biological interpretation?',
+        method: 'Uses morphology features from pathology tiles and molecular features from multi-omics data, then aligns modalities through self-supervised contrastive learning with reconstruction constraints.',
+        value: 'A strong reference for systematic morphology-to-molecule inference, multimodal integration, spatial clustering, prognosis modeling, and trajectory analysis.',
+        caution: 'The interpretation of cross-modality predictions should be checked carefully across cancer types, molecular layers, and external cohorts.'
+      }),     
+      paper('Cancer Cell 2022', 'Pan-Cancer Integrative Histology-Genomic Analysis via Multimodal Deep Learning', ['PORPOISE', 'Histology Genomics', 'Prognosis'], 'A pan-cancer multimodal survival modeling framework that integrates whole-slide histology images and molecular profiles to improve prognosis prediction and identify image-omic correlates of patient risk.', 'https://doi.org/10.1016/j.ccell.2022.07.004', {
+        question: 'Can whole-slide pathology images and genomic profiles be jointly modeled to improve cancer prognosis and discover interpretable image-omic biomarkers?',
+        method: 'Uses weakly supervised WSI modeling, molecular feature modeling, and multimodal fusion to predict survival risk across 14 cancer types.',
+        value: 'A foundational reference for pathology-omics prognosis modeling and interpretable multimodal survival analysis.',
+        caution: 'This paper is published in Cancer Cell rather than Nature Portfolio, so keep or remove it depending on whether this list is strictly Nature-only.'
+      }),
       paper('Nature Methods 2025', 'A Visual Omics Foundation Model to Bridge Histopathology with Spatial Transcriptomics', ['OmiCLIP', 'Loki', 'Spatial Transcriptomics'], 'A visual omics foundation model and platform for alignment, annotation, deconvolution, retrieval, and spatial gene expression prediction.', 'https://www.nature.com/articles/s41592-025-02707-1', {
         question: 'Can routine histology be aligned with spatial transcriptomics at scale?',
         method: 'Uses contrastive pretraining on paired histology patches and transcriptomic gene sentences.',
@@ -509,6 +540,7 @@ const topics = {
       ['Treatment response', 'Connect morphology and molecular features to therapy benefit.', null]
     ],
     papers: [
+      PORPOISE_PAPER,
       paper('Nature 2024', 'A Pathology Foundation Model for Cancer Diagnosis and Prognosis Prediction', ['CHIEF', 'Molecular Characterization', 'Outcome'], 'A pan-cancer foundation model with molecular characterization and prognosis-related tasks.', 'https://www.nature.com/articles/s41586-024-07894-z', {
         question: 'Can general pathology features predict molecular and clinical phenotypes?',
         method: 'Uses foundation model representations for diagnosis, molecular, and outcome prediction.',
@@ -697,6 +729,7 @@ const topics = {
       ['Slide aggregation', 'Study how patch features become patient-level predictions.', null]
     ],
     papers: [
+      PORPOISE_PAPER,
       paper('Nature Medicine 2025', 'A Multimodal Whole Slide Foundation Model for Pathology', ['TITAN', 'Prognosis', 'Patient Level'], 'A WSI-level multimodal model relevant for patient-level prediction.', 'https://www.nature.com/articles/s41591-025-03982-3', {
         question: 'Can WSI foundation models improve patient-level prediction?',
         method: 'Learns whole-slide and multimodal representations.',
@@ -751,6 +784,7 @@ const topics = {
       ['Clinical endpoint', 'Connect biomarkers to outcome or treatment response.', null]
     ],
     papers: [
+      PORPOISE_PAPER,
       paper('Nature 2024', 'A Pathology Foundation Model for Cancer Diagnosis and Prognosis Prediction', ['Biomarker', 'Molecular Prediction', 'CHIEF'], 'A reference for molecular characterization from histology.', 'https://www.nature.com/articles/s41586-024-07894-z', {
         question: 'Can morphology encode clinically relevant molecular states?',
         method: 'Uses pathology foundation model representations.',
@@ -841,6 +875,7 @@ const topics = {
       ['Molecular association', 'Link image patterns with gene expression, mutation, protein, or pathway activity.', null]
     ],
     papers: [
+      PORPOISE_PAPER,
       paper('Nature 2024', 'A Pathology Foundation Model for Cancer Diagnosis and Prognosis Prediction', ['Biomarker', 'Histology', 'Molecular'], 'A pan-cancer reference for biomarker-related prediction from pathology images.', 'https://www.nature.com/articles/s41586-024-07894-z', {
         question: 'Can histology reveal molecular biomarkers?',
         method: 'Uses pathology foundation representations for molecular characterization.',
@@ -1043,6 +1078,8 @@ function buildReadableFallbackName(title) {
 }
 
 function buildNoteFilePath(paperItem, topicKey, tone) {
+  if (paperItem.note?.noteFile) return paperItem.note.noteFile;
+  if (paperItem.noteFile) return paperItem.noteFile;
   const folderMap = { bio: 'CBio', path: 'CPath', bridge: 'PathOmics' };
   const folder = folderMap[tone] || 'CBio';
   const preferredNames = ['scGPT', 'Geneformer', 'Nicheformer', 'scPRINT', 'GLUE', 'MultiVI', 'MIDAS', 'OmiCLIP', 'MultiVeloVAE', 'GraphVelo', 'UNI', 'Prov GigaPath', 'Virchow', 'CHIEF', 'TITAN', 'CONCH', 'PathChat', 'PLIP', 'SPARK', 'SMMILe', 'HESpotEx', 'Loki'];
@@ -1133,7 +1170,7 @@ function renderPaper(paperItem) {
       </div>
       <div class="paper-actions">
         <a class="paper-open paper-link" href="${paperItem.url}" target="_blank" rel="noopener noreferrer">Paper</a>
-        <a class="paper-open note-link" href="${paperItem.noteFile}" target="_blank" rel="noopener noreferrer">Note</a>
+        <a class="paper-open note-link" href="${buildNoteHref(paperItem.noteFile)}"${buildNoteAttrs(paperItem.noteFile)}>Note</a>
       </div>
     </article>
   `;
@@ -1432,14 +1469,152 @@ function buildShareFromTopic(pageKey) {
 
 Object.keys(topics).forEach(renderOverviewPage);
 
+
+let readerState = {
+  pdf: '',
+  title: '',
+  scale: 1,
+  layout: 'split'
+};
+
+function getPDFTitleFromUrl(url) {
+  const match = allPapers.find((item) => item.noteFile === url);
+  if (match) return match.title;
+  const clean = decodeURIComponent(url.split('/').pop() || 'PDF Note').replace(/\.pdf$/i, '');
+  return clean.replace(/[-_]+/g, ' ');
+}
+
+function renderReaderPage(pdfUrl) {
+  const page = document.getElementById('page-reader');
+  if (!page) return false;
+  const decodedUrl = decodeURIComponent(pdfUrl || '');
+  if (!decodedUrl) return false;
+  readerState.pdf = decodedUrl;
+  readerState.title = getPDFTitleFromUrl(decodedUrl);
+  readerState.scale = 1;
+  const noteKey = `pdfReaderSideNote:${decodedUrl}`;
+  const savedNote = localStorage.getItem(noteKey) || '';
+  page.innerHTML = `
+    <div class="pdf-reader-shell" data-layout="${readerState.layout}">
+      <header class="pdf-reader-head">
+        <div>
+          <div class="pdf-reader-kicker">PDF Reading Desk</div>
+          <h2>${escapeHTML(readerState.title)}</h2>
+          <p>${escapeHTML(decodedUrl)}</p>
+        </div>
+        <div class="pdf-reader-actions">
+          <button type="button" class="reader-btn" data-reader-action="back">← Back</button>
+          <button type="button" class="reader-btn" data-reader-action="zoom-out">−</button>
+          <span class="reader-zoom" id="readerZoom">100%</span>
+          <button type="button" class="reader-btn" data-reader-action="zoom-in">+</button>
+          <button type="button" class="reader-btn" data-reader-action="fit">Fit</button>
+          <button type="button" class="reader-btn" data-reader-action="layout">Split</button>
+          <a class="reader-btn reader-primary" href="${escapeHTML(decodedUrl)}" target="_blank" rel="noopener noreferrer">Open PDF</a>
+        </div>
+      </header>
+      <div class="pdf-reader-body">
+        <section class="pdf-frame-panel">
+          <div class="pdf-frame-scale" id="pdfFrameScale">
+            <iframe class="pdf-frame" src="${escapeHTML(decodedUrl)}#toolbar=1&navpanes=0&view=FitH" title="${escapeHTML(readerState.title)}"></iframe>
+          </div>
+        </section>
+        <aside class="pdf-note-panel">
+          <div class="pdf-note-head">
+            <strong>Reading notes</strong>
+            <span>Saved locally</span>
+          </div>
+          <textarea id="pdfSideNote" placeholder="Write highlights, questions, or page references here...">${escapeHTML(savedNote)}</textarea>
+          <div class="pdf-note-actions">
+            <button type="button" class="reader-btn reader-primary" data-reader-action="save-note">Save note</button>
+            <button type="button" class="reader-btn" data-reader-action="download-note">Export note</button>
+          </div>
+          <p class="pdf-reader-tip">The embedded PDF keeps browser-native page navigation and zoom. Side notes are stored in this browser and can be exported.</p>
+        </aside>
+      </div>
+    </div>
+  `;
+  updateReaderScale();
+  return true;
+}
+
+function updateReaderScale() {
+  const frameScale = document.getElementById('pdfFrameScale');
+  const zoomLabel = document.getElementById('readerZoom');
+  if (!frameScale) return;
+  frameScale.style.transform = `scale(${readerState.scale})`;
+  frameScale.style.width = `${100 / readerState.scale}%`;
+  frameScale.style.height = `${100 / readerState.scale}%`;
+  if (zoomLabel) zoomLabel.textContent = `${Math.round(readerState.scale * 100)}%`;
+}
+
+function savePDFSideNote() {
+  const textarea = document.getElementById('pdfSideNote');
+  if (!textarea || !readerState.pdf) return;
+  localStorage.setItem(`pdfReaderSideNote:${readerState.pdf}`, textarea.value);
+}
+
+function downloadPDFSideNote() {
+  const textarea = document.getElementById('pdfSideNote');
+  if (!textarea || !readerState.pdf) return;
+  const content = `# ${readerState.title}\n\nPDF: ${readerState.pdf}\n\n${textarea.value}\n`;
+  const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `${readerState.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'pdf-note'}.md`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
+function handleReaderAction(action) {
+  const shell = document.querySelector('.pdf-reader-shell');
+  if (action === 'back') {
+    history.back();
+    return;
+  }
+  if (action === 'zoom-in') readerState.scale = Math.min(1.75, readerState.scale + 0.1);
+  if (action === 'zoom-out') readerState.scale = Math.max(0.65, readerState.scale - 0.1);
+  if (action === 'fit') readerState.scale = 1;
+  if (action === 'layout' && shell) {
+    readerState.layout = readerState.layout === 'split' ? 'focus' : 'split';
+    shell.dataset.layout = readerState.layout;
+    const btn = document.querySelector('[data-reader-action="layout"]');
+    if (btn) btn.textContent = readerState.layout === 'split' ? 'Split' : 'Focus';
+  }
+  if (action === 'save-note') {
+    savePDFSideNote();
+    showToast('PDF side note saved.');
+  }
+  if (action === 'download-note') downloadPDFSideNote();
+  updateReaderScale();
+}
+
 function getPageFromHash() {
   const hash = window.location.hash.replace('#', '').trim();
-  if (['home-introduction', 'home-search', 'reading-queue'].includes(hash)) return 'home';
+  if (['home-introduction', 'home-search', 'finish-notes', 'reading-queue', 'topic-summary'].includes(hash)) return 'home';
   return hash || 'home';
 }
 
 function activatePage(pageKey, options = {}) {
   const { updateHash = true, smoothScroll = true } = options;
+  if (pageKey.startsWith('reader/')) {
+    const pdfUrl = pageKey.replace('reader/', '');
+    const ok = renderReaderPage(pdfUrl);
+    if (!ok) return false;
+    document.querySelectorAll('.page').forEach((page) => page.classList.remove('is-active'));
+    document.querySelectorAll('[data-page]').forEach((item) => item.classList.remove('active'));
+    document.getElementById('page-reader')?.classList.add('is-active');
+    currentShare = {
+      title: readerState.title || 'PDF Reading Note',
+      subtitle: 'PDF reading desk · Ye Zhang Reading Notes',
+      tags: ['PDF', 'Reading Note', 'Path Omics'],
+      url: `${window.location.href.split('#')[0]}#reader/${pdfUrl}`,
+      tone: 'home'
+    };
+    updateSharePreview();
+    if (updateHash) window.location.hash = pageKey;
+    window.scrollTo({ top: 0, behavior: smoothScroll ? 'smooth' : 'auto' });
+    return true;
+  }
   if (pageKey.startsWith('note/')) {
     const slug = pageKey.replace('note/', '');
     const item = paperBySlug.get(slug);
@@ -1467,6 +1642,13 @@ function activatePage(pageKey, options = {}) {
 }
 
 document.addEventListener('click', (event) => {
+  const readerAction = event.target.closest('[data-reader-action]');
+  if (readerAction) {
+    event.preventDefault();
+    handleReaderAction(readerAction.dataset.readerAction);
+    return;
+  }
+
   const homeAnchor = event.target.closest('.home-anchor-link');
   if (homeAnchor) {
     event.preventDefault();
@@ -1511,7 +1693,7 @@ document.addEventListener('click', (event) => {
 
 window.addEventListener('hashchange', () => {
   const hash = window.location.hash.replace('#', '').trim();
-  if (['home-introduction', 'home-search', 'reading-queue'].includes(hash)) {
+  if (['home-introduction', 'home-search', 'finish-notes', 'reading-queue', 'topic-summary'].includes(hash)) {
     activatePage('home', { updateHash: false, smoothScroll: false });
     document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     return;
@@ -1524,7 +1706,7 @@ const initialOk = activatePage(getPageFromHash(), { updateHash: false, smoothScr
 if (!initialOk) activatePage('home', { updateHash: false, smoothScroll: false });
 
 const initialHash = window.location.hash.replace('#', '').trim();
-if (['home-introduction', 'home-search', 'reading-queue'].includes(initialHash)) {
+if (['home-introduction', 'home-search', 'finish-notes', 'reading-queue', 'topic-summary'].includes(initialHash)) {
   activatePage('home', { updateHash: false, smoothScroll: false });
   setTimeout(() => document.getElementById(initialHash)?.scrollIntoView({ behavior: 'auto', block: 'start' }), 0);
 }
@@ -1553,7 +1735,7 @@ function renderSearchSuggestions() {
   searchSuggestions.innerHTML = `
     <div class="suggestion-head">Suggested starting points</div>
     <div class="suggestion-pills">
-      ${suggestedSearches.map((item) => `<button type="button" class="suggestion-chip" data-suggest="${escapeHTML(item)}">${escapeHTML(item)}</button>`).join('')}
+      ${suggestedSearches.map((item, index) => `<button type="button" class="suggestion-chip chip-${(index % 8) + 1}" data-suggest="${escapeHTML(item)}">${escapeHTML(item)}</button>`).join('')}
     </div>
   `;
 }
@@ -1592,6 +1774,23 @@ function renderSearchResults() {
   searchResults.innerHTML = results.length ? results.map(renderSearchItem).join('') : '<div class="empty-note">No matching paper yet.</div>';
 }
 
+
+function isPDFNote(url) {
+  return typeof url === 'string' && url.toLowerCase().endsWith('.pdf');
+}
+
+function buildNoteHref(noteFile) {
+  return isPDFNote(noteFile) ? `#reader/${encodeURIComponent(noteFile)}` : noteFile;
+}
+
+function buildNoteAttrs(noteFile) {
+  return isPDFNote(noteFile) ? '' : ' target="_blank" rel="noopener noreferrer"';
+}
+
+function makePaperStyleId(paperItem) {
+  return paperItem.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 function renderSearchItem(item) {
   return `
     <article class="paper-card paper-card-simple family-${item.tone}">
@@ -1601,7 +1800,7 @@ function renderSearchItem(item) {
       </div>
       <div class="paper-actions">
         <a class="paper-open paper-link" href="${item.url}" target="_blank" rel="noopener noreferrer">Paper</a>
-        <a class="paper-open note-link" href="${item.noteFile}" target="_blank" rel="noopener noreferrer">Note</a>
+        <a class="paper-open note-link" href="${buildNoteHref(item.noteFile)}"${buildNoteAttrs(item.noteFile)}>Note</a>
       </div>
     </article>
   `;
@@ -1667,13 +1866,63 @@ function renderTopicSummaryNotes() {
   `).join('');
 }
 
+
+const finishedNotes = [
+  {
+    date: '2026-05-19',
+    title: 'Pan-Cancer Integrative Histology-Genomic Analysis via Multimodal Deep Learning',
+    venue: 'Cancer Cell 2022',
+    desc: 'Finished PDF note for PORPOISE and image-omic survival modeling.',
+    href: 'notes/porpoise.pdf',
+    tags: ['PORPOISE', 'Pathology Omics', 'Prognosis']
+  }
+];
+
+function renderQueueItem(item, index) {
+  const tags = item.tags.slice(0, 3).map((tag) => `<span class="queue-tag">${escapeHTML(tag)}</span>`).join('');
+  return `
+    <article class="queue-card family-${item.tone}">
+      <div class="queue-index">${String(index + 1).padStart(2, '0')}</div>
+      <div class="queue-main">
+        <div class="queue-meta"><span>${escapeHTML(item.venue)}</span>${tags}</div>
+        <h3>${escapeHTML(item.title)}</h3>
+        <p>Queued for later reading · ${escapeHTML(item.topicTitle)}</p>
+      </div>
+      <div class="queue-actions">
+        <a class="paper-open paper-link" href="${item.url}" target="_blank" rel="noopener noreferrer">Paper</a>
+        <a class="paper-open note-link" href="${buildNoteHref(item.noteFile)}"${buildNoteAttrs(item.noteFile)}>Note</a>
+      </div>
+    </article>
+  `;
+}
+
+function renderFinishNotes() {
+  const wrap = document.getElementById('finishNotes');
+  if (!wrap) return;
+  wrap.innerHTML = finishedNotes.map((item) => `
+    <a class="finish-item" href="${buildNoteHref(item.href)}"${buildNoteAttrs(item.href)}>
+      <time>${escapeHTML(item.date)}</time>
+      <div class="finish-dot" aria-hidden="true"></div>
+      <div class="finish-body">
+        <strong>${escapeHTML(item.title)}</strong>
+        <em>${escapeHTML(item.venue)}</em>
+        <span>${escapeHTML(item.desc)}</span>
+        <div class="finish-tags">${item.tags.map((tag) => `<small>${escapeHTML(tag)}</small>`).join('')}</div>
+      </div>
+      <span class="finish-open">Open</span>
+    </a>
+  `).join('');
+}
+
 function renderHomeCollections() {
   const queue = document.getElementById('readingQueue');
   if (queue) {
-    queue.innerHTML = allPapers.slice(8, 12).map(renderSearchItem).join('');
+    queue.innerHTML = allPapers.slice(8, 12).map(renderQueueItem).join('');
   }
+  renderFinishNotes();
 }
 renderHomeCollections();
+
 renderTopicSummaryNotes();
 
 
