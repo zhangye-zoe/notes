@@ -12,8 +12,41 @@ const PORPOISE_PAPER = paper('Cancer Cell 2022', 'Pan-Cancer Integrative Histolo
   caution: 'This paper is Cancer Cell rather than Nature Portfolio, but it is highly relevant as an image-omics benchmark and finished reading note.',
   noteFile: 'notes/porpoise.pdf',
   completed: true,
+  completedDate: '2026-05-18',
+  completedLabel: 'PDF note'
+});
+
+const OMICLIP_PAPER = paper('Nature Methods 2025', 'A Visual Omics Foundation Model to Bridge Histopathology with Spatial Transcriptomics', ['OmiCLIP', 'Loki', 'Spatial Transcriptomics'], 'A visual-omics foundation model and Loki platform that align H&E histology with spatial transcriptomics for tissue alignment, annotation, deconvolution, retrieval, and spatial gene-expression prediction.', 'https://www.nature.com/articles/s41592-025-02707-1', {
+  question: 'Can routine H&E histology be aligned with spatial transcriptomics at scale?',
+  method: 'Uses contrastive pretraining on paired histology patches and transcriptomic gene sentences from large-scale spatial transcriptomics data.',
+  value: 'A central reference for Pathology Omics, histology-guided molecular inference, and visual-omics foundation modeling.',
+  caution: 'Predicted spatial molecular maps should be interpreted as model-estimated molecular layers and validated against measured assays.',
+  noteFile: 'notes/OmiCLIP.pdf',
+  completed: true,
   completedDate: '2026-05-19',
-  completedLabel: 'Finished PDF note'
+  completedLabel: 'PDF note'
+});
+
+const STORM_PAPER = paper('arXiv 2026', 'A Multimodal Foundation Model of Spatial Transcriptomics and Histology for Biological Discovery and Clinical Prediction', ['STORM', 'Spatial Transcriptomics', 'Histology'], 'A spatial transcriptomics and histology foundation model trained on 1.2 million paired ST-H&E spots across 18 organs for spatial domain discovery, virtual ST prediction, and clinical outcome prediction.', 'https://arxiv.org/abs/2604.03630', {
+  question: 'Can H&E and spatial transcriptomics be unified into a spatially aware foundation model for discovery and clinical prediction?',
+  method: 'Uses hierarchical spot-level H&E and ST encoders plus a spatial encoder trained with multimodal masked pretraining.',
+  value: 'Important for connecting morphology, spatial molecular context, virtual ST prediction, immunotherapy response, and patient outcomes.',
+  caution: 'This is an arXiv work in progress, so final claims and benchmarking details should be updated after peer review.',
+  noteFile: 'notes/STORM.pdf',
+  completed: true,
+  completedDate: '2026-05-19',
+  completedLabel: 'PDF note'
+});
+
+const MULTIEMBED_PAPER = paper('Nature Methods 2026', 'Systematically Decoding Pathological Morphologies and Molecular Profiles with Unified Multimodal Embedding', ['Multi-Embed', 'Multimodal Embedding', 'Pathology Omics'], 'A unified and interpretable multimodal embedding framework for cross-modality inference and integration between multilevel pathological morphologies and multilayer molecular profiles.', 'https://www.nature.com/articles/s41592-026-03070-5', {
+  question: 'Can pathology morphology and multilayer molecular profiles be aligned in a unified embedding space for inference and biological interpretation?',
+  method: 'Uses morphology features from pathology tiles and molecular features from multi-omics data, aligned by self-supervised contrastive learning with reconstruction constraints.',
+  value: 'A strong reference for morphology-to-molecule inference, multimodal integration, spatial clustering, prognosis modeling, and trajectory analysis.',
+  caution: 'Cross-modality predictions should be checked across cancer types, molecular layers, external cohorts, and downstream clinical settings.',
+  noteFile: 'notes/MultiEmbed.pdf',
+  completed: true,
+  completedDate: '2026-05-19',
+  completedLabel: 'PDF note'
 });
 
 
@@ -1080,6 +1113,8 @@ function buildReadableFallbackName(title) {
 function buildNoteFilePath(paperItem, topicKey, tone) {
   if (paperItem.note?.noteFile) return paperItem.note.noteFile;
   if (paperItem.noteFile) return paperItem.noteFile;
+  const finishedNoteFile = getFinishedNoteFile(paperItem);
+  if (finishedNoteFile) return finishedNoteFile;
   const folderMap = { bio: 'CBio', path: 'CPath', bridge: 'PathOmics' };
   const folder = folderMap[tone] || 'CBio';
   const preferredNames = ['scGPT', 'Geneformer', 'Nicheformer', 'scPRINT', 'GLUE', 'MultiVI', 'MIDAS', 'OmiCLIP', 'MultiVeloVAE', 'GraphVelo', 'UNI', 'Prov GigaPath', 'Virchow', 'CHIEF', 'TITAN', 'CONCH', 'PathChat', 'PLIP', 'SPARK', 'SMMILe', 'HESpotEx', 'Loki'];
@@ -1099,6 +1134,53 @@ function buildNoteFilePath(paperItem, topicKey, tone) {
   }
   return `notes_V1/${folder}/${base}.html`;
 }
+
+const FINISHED_NOTE_FILE_BY_TITLE = [
+  ['pan-cancer integrative histology-genomic analysis', 'notes/porpoise.pdf'],
+  ['visual omics foundation model to bridge histopathology with spatial transcriptomics', 'notes/OmiCLIP.pdf'],
+  ['visual–omics foundation model to bridge histopathology with spatial transcriptomics', 'notes/OmiCLIP.pdf'],
+  ['multimodal foundation model of spatial transcriptomics and histology', 'notes/STORM.pdf'],
+  ['systematically decoding pathological morphologies and molecular profiles', 'notes/MultiEmbed.pdf']
+];
+
+function getFinishedNoteFile(paperItem) {
+  const title = String(paperItem?.title || '').toLowerCase();
+  const found = FINISHED_NOTE_FILE_BY_TITLE.find(([key]) => title.includes(key.toLowerCase()));
+  return found ? found[1] : '';
+}
+
+function addPaperToTopic(topicKey, paperItem) {
+  const topic = topics[topicKey];
+  if (!topic || !Array.isArray(topic.papers)) return;
+  if (!topic.papers.some((item) => item.title === paperItem.title)) topic.papers.push(paperItem);
+}
+
+// Finished notes are shared paper objects, so updating one object updates all linked topic entries.
+[
+  ['bridge-histology', OMICLIP_PAPER],
+  ['bridge-visualomics', OMICLIP_PAPER],
+  ['bridge-molecular', OMICLIP_PAPER],
+  ['cbio-spatial', OMICLIP_PAPER],
+  ['bridge-histology', STORM_PAPER],
+  ['bridge-visualomics', STORM_PAPER],
+  ['bridge-molecular', STORM_PAPER],
+  ['bridge-therapy', STORM_PAPER],
+  ['bridge-oncology', STORM_PAPER],
+  ['cbio-spatial', STORM_PAPER],
+  ['path-prognosis', STORM_PAPER],
+  ['bridge-histology', MULTIEMBED_PAPER],
+  ['bridge-visualomics', MULTIEMBED_PAPER],
+  ['bridge-molecular', MULTIEMBED_PAPER],
+  ['bridge-biomarker', MULTIEMBED_PAPER],
+  ['bridge-oncology', MULTIEMBED_PAPER],
+  ['path-prognosis', MULTIEMBED_PAPER],
+  ['path-biomarker', MULTIEMBED_PAPER],
+  ['bridge-histology', PORPOISE_PAPER],
+  ['bridge-molecular', PORPOISE_PAPER],
+  ['bridge-biomarker', PORPOISE_PAPER],
+  ['path-prognosis', PORPOISE_PAPER],
+  ['path-biomarker', PORPOISE_PAPER]
+].forEach(([topicKey, paperItem]) => addPaperToTopic(topicKey, paperItem));
 
 const topicKeys = Object.keys(topics).filter((key) => !key.endsWith('overview'));
 const allPapers = topicKeys.flatMap((key) =>
@@ -1723,7 +1805,9 @@ const suggestedSearches = [
     'CONCH',
     'TITAN',
     'GraphVelo',
-    'MultiVeloVAE'
+    'MultiVeloVAE',
+    'STORM',
+    'Multi-Embed'
   ])
 ];
 let activeFamily = 'All';
@@ -1869,11 +1953,83 @@ function renderTopicSummaryNotes() {
 const finishedNotes = [
   {
     date: '2026-05-19',
+    title: 'A Visual Omics Foundation Model to Bridge Histopathology with Spatial Transcriptomics',
+    venue: 'Nature Methods 2025',
+    desc: 'OmiCLIP and Loki for visual-omics alignment and spatial molecular prediction.',
+    href: 'notes/OmiCLIP.pdf',
+    tags: ['OmiCLIP', 'Spatial Omics', 'Visual Omics'],
+    tone: 'bridge'
+  },
+  {
+    date: '2026-05-19',
+    title: 'A Multimodal Foundation Model of Spatial Transcriptomics and Histology for Biological Discovery and Clinical Prediction',
+    venue: 'arXiv 2026',
+    desc: 'STORM for spatially aware H&E-ST foundation modeling and clinical prediction.',
+    href: 'notes/STORM.pdf',
+    tags: ['STORM', 'Histology ST', 'Clinical Prediction'],
+    tone: 'bridge'
+  },
+  {
+    date: '2026-05-19',
+    title: 'Systematically Decoding Pathological Morphologies and Molecular Profiles with Unified Multimodal Embedding',
+    venue: 'Nature Methods 2026',
+    desc: 'Multi-Embed for morphology-molecule inference, integration, and prognosis.',
+    href: 'notes/MultiEmbed.pdf',
+    tags: ['Multi-Embed', 'Pathology Omics', 'Multimodal'],
+    tone: 'bridge'
+  },
+  {
+    date: '2026-05-18',
     title: 'Pan-Cancer Integrative Histology-Genomic Analysis via Multimodal Deep Learning',
     venue: 'Cancer Cell 2022',
-    desc: 'Finished PDF note for PORPOISE and image-omic survival modeling.',
+    desc: 'PORPOISE and image-omic survival modeling.',
     href: 'notes/porpoise.pdf',
-    tags: ['PORPOISE', 'Pathology Omics', 'Prognosis']
+    tags: ['PORPOISE', 'Histology Genomics', 'Prognosis'],
+    tone: 'path'
+  }
+];
+
+
+const readingQueuePapers = [
+  {
+    venue: 'Nature Biotechnology 2022',
+    title: 'Super-Resolved Spatial Transcriptomics by Deep Data Fusion',
+    tags: ['XFuse', 'Super Resolution', 'Histology'],
+    url: 'https://www.nature.com/articles/s41587-021-01075-3',
+    noteFile: 'notes_V1/PathOmics/XFuse.html',
+    topicTitle: 'Histology Spatial Omics',
+    family: 'Pathology Omics',
+    tone: 'bridge'
+  },
+  {
+    venue: 'Nature Biotechnology 2024',
+    title: 'Inferring Super-Resolution Tissue Architecture by Integrating Spatial Transcriptomics with Histology',
+    tags: ['iStar', 'Super Resolution', 'Tissue Architecture'],
+    url: 'https://www.nature.com/articles/s41587-023-02019-9',
+    noteFile: 'notes_V1/PathOmics/iStar.html',
+    topicTitle: 'Histology Spatial Omics',
+    family: 'Pathology Omics',
+    tone: 'bridge'
+  },
+  {
+    venue: 'Nature Communications 2026',
+    title: 'SpatialCOC: An Integrative Framework for Spatial Continuous Mapping and Cross-Omics Correction in Spatial Multi-Omics Data',
+    tags: ['SpatialCOC', 'Cross Omics', 'Continuous Mapping'],
+    url: 'https://www.nature.com/articles/s41467-026-71882-2',
+    noteFile: 'notes_V1/PathOmics/SpatialCOC.html',
+    topicTitle: 'Multiomics Integration',
+    family: 'Computational Biology',
+    tone: 'bio'
+  },
+  {
+    venue: 'Nature Communications 2026',
+    title: 'FineST: Contrastive Learning Integrates Histology and Spatial Transcriptomics for Nuclei-Resolved Ligand-Receptor Analysis',
+    tags: ['FineST', 'Ligand Receptor', 'Nuclei Resolved'],
+    url: 'https://www.nature.com/articles/s41467-026-70528-7',
+    noteFile: 'notes_V1/PathOmics/FineST.html',
+    topicTitle: 'Histology Spatial Omics',
+    family: 'Pathology Omics',
+    tone: 'bridge'
   }
 ];
 
@@ -1899,7 +2055,7 @@ function renderFinishNotes() {
   const wrap = document.getElementById('finishNotes');
   if (!wrap) return;
   wrap.innerHTML = finishedNotes.map((item) => `
-    <a class="finish-item" href="${buildNoteHref(item.href)}"${buildNoteAttrs(item.href)}>
+    <a class="finish-item family-${item.tone || 'default'}" href="${buildNoteHref(item.href)}"${buildNoteAttrs(item.href)}>
       <time>${escapeHTML(item.date)}</time>
       <div class="finish-dot" aria-hidden="true"></div>
       <div class="finish-body">
@@ -1915,7 +2071,7 @@ function renderFinishNotes() {
 function renderHomeCollections() {
   const queue = document.getElementById('readingQueue');
   if (queue) {
-    queue.innerHTML = allPapers.slice(8, 12).map(renderQueueItem).join('');
+    queue.innerHTML = readingQueuePapers.map(renderQueueItem).join('');
   }
   renderFinishNotes();
 }
