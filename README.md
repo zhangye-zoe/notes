@@ -6,7 +6,7 @@
   </a>
   <img src="https://img.shields.io/badge/Notes-Literature-7E57C2?style=flat-square&logo=bookstack&logoColor=white" alt="Literature Notes">
   <img src="https://img.shields.io/badge/Computational%20Biology-%20Omics-26A69A?style=flat-square&logo=readthedocs&logoColor=white" alt="Computational Biology">
-  <img src="https://img.shields.io/badge/Computational%20Biology-%20Cancer-F4A261?style=flat-square&logo=readthedocs&logoColor=white"  alt="Computational Pathology">
+  <img src="https://img.shields.io/badge/Computational%20Pathology-%20Cancer-F4A261?style=flat-square&logo=readthedocs&logoColor=white"  alt="Computational Pathology">
 </p>
 
 **PathOmics Notes** collects structured paper summaries, key figures, method insights, and topic-level notes around AI-driven biomedical research, with a focus on **computational biology**, **computational pathology**, **pathology-omics integration**, **cancer biology**, and **precision medicine**.
